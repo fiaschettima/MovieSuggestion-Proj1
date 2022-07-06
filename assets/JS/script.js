@@ -29,6 +29,7 @@ function checkInput() {
     }).then(function(data){
         console.log(data);
         ///////////////////////////////////////////////////////////////
+        for(i=0; i < 5; i++){
         var newRow = document.createElement('div'); // make row
         var rightSide = document.createElement('div'); // make col
         var movieCard = document.createElement('div');// make card
@@ -37,15 +38,15 @@ function checkInput() {
         var movieImg = document.createElement('img')// add image
         var movieTitle = document.createElement('span')// floating title in img
         var movieText = document.createElement('p')// text for movie
-        rightSide.classList.add('col','s12','m7');
+        rightSide.classList.add('col','s12','m3');
         newRow.classList.add('row')
         movieCard.classList.add('card')
         movieImgC.classList.add('card-image')
-        movieImg.setAttribute('src', 'http://image.tmdb.org/t/p/w500/'+data.results[0].backdrop_path)+'.jpg'
+        movieImg.setAttribute('src', 'http://image.tmdb.org/t/p/w500/'+data.results[i].poster_path)+'.jpg'
         movieText.classList.add('card-content')
         movieTitle.classList.add('card-title')
-        movieTitle.textContent = data.results[0].title
-        movieText.textContent =  data.results[0].overvie
+        movieTitle.textContent = data.results[i].title
+        movieText.textContent =  data.results[i].overview
         movieContent.appendChild(movieText)
         movieImgC.appendChild(movieImg)
         movieImgC.appendChild(movieTitle)
@@ -56,6 +57,7 @@ function checkInput() {
         console.log(newRow)
         var pageBody = document.getElementById('cardHere')
         pageBody.appendChild(newRow)
+        }
     })
 }
 // https://api.themoviedb.org/3/movie/414906/similar?api_key=07f3bf91adb1325ab2741c977ecdf895&language=en-US&page=1
