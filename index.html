@@ -8,12 +8,35 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="./assets/CSS/materialize.min.css"  media="screen,projection"/>
+    <link rel="stylesheet" href="./assets/CSS/style.css"/>
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   </head>
 
   <body>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/ue80QwXMRHg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <!-- Create search form -->
+    <div class="container valign-wrapper center-align my-wrapper">
+    <div class="row">
+      <div class="input-field col s9 grey pull-s1 align">
+        <input placeholder="Placeholder" id="search-topic" type="text" class="validate">
+        <label for="first_name">First Name</label>
+        <form action="#">
+          <p>
+            <label>
+              <input name="group1" id="title-name" type="radio" />
+              <span for="title-name" class="text-colors">Title</span>
+            </label>
+          </p>
+          <p>
+            <label>
+              <input name="group1" id="genre-name" type="radio" />
+              <span for="genre-name" class="text-colors">Genre</span>
+            </label>
+          </p>
+      </div>
+    </div>
+  </div>
+    <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/ue80QwXMRHg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
     <!--JavaScript at end of body for optimized loading-->
     <script type="text/javascript" src="./assets/JS/materialize.min.js"></script>
     <script src="./assets/JS/script.js"></script>

@@ -1,0 +1,11 @@
+.align {
+  text-align: center;  
+}
+
+html, body, .my-wrapper {
+    height: 100%;
+}
+
+.text-colors {
+    color: blue;
+}
