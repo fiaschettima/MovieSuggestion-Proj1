@@ -19,7 +19,21 @@ var submitBtn = document.getElementById("submit-btn");
 submitBtn.addEventListener('click', checkInput);
 
 function checkInput() {
-    
-    console.log(userInput.value);
+    var tmdbAPI = '07f3bf91adb1325ab2741c977ecdf895';
+    var tmdbURL = 'https://api.themoviedb.org/3/search/movie?api_key=07f3bf91adb1325ab2741c977ecdf895&query=' + userInput.value + '&api_key=' + tmdbAPI;
+
+    fetch(tmdbURL)
+        .then(function(response){
+            console.log(response)
+            return response.json();
+    }).then(function(data){
+        console.log(data);
+    })
 }
+
+
+  
+// findyoutubeid();
+//     console.log(userInput.value);
+// }
 
