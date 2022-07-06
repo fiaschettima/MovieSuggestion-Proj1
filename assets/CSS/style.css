@@ -1,0 +1,8 @@
+html, body, .my-wrapper {
+    height: 100%;
+}
+
+.my-colors {
+    color: #000000;
+    background-color: #ECFBFF;
+}
