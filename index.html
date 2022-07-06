@@ -14,23 +14,25 @@
   </head>
 
   <body>
-    <!-- Create search form -->
-    <div class="container valign-wrapper center-align my-wrapper">
+    <!-- Create search form to search by movie -->
+    <div class="container valign-wrapper my-wrapper">
     <div class="row">
-      <div class="input-field col s9 grey pull-s1 align">
-        <input placeholder="Placeholder" id="search-topic" type="text" class="validate">
-        <label for="first_name">First Name</label>
+      <div class="input-field col s12 my-colors">
+        
+        <input placeholder="search movie" id="search-topic" type="text" class="validate">
+        <label for="search-input"></label>
+        <!-- Create radio buttons to select by title or genre -->
         <form action="#">
           <p>
             <label>
               <input name="group1" id="title-name" type="radio" />
-              <span for="title-name" class="text-colors">Title</span>
+              <span for="title-name" class="my-colors">Title</span>
             </label>
           </p>
           <p>
             <label>
               <input name="group1" id="genre-name" type="radio" />
-              <span for="genre-name" class="text-colors">Genre</span>
+              <span for="genre-name" class="my-colors">Genre</span>
             </label>
           </p>
       </div>
