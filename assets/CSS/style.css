@@ -6,3 +6,6 @@ html, body, .my-wrapper {
     color: #000000;
     background-color: #ECFBFF;
 }
+#searchedCards {
+    border: 1px solid black;
+}
