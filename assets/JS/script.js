@@ -29,6 +29,8 @@ function checkInput() {
     }).then(function(data){
         console.log(data);
         ///////////////////////////////////////////////////////////////
+        var pageBody = document.getElementById('cardHere')
+        pageBody.innerHTML = "";
         for(i=0; i < 6; i++){
         // var newRow = document.createElement('div'); // make row
         // var rightSide = document.createElement('div'); // make col
@@ -53,7 +55,7 @@ function checkInput() {
         // movieCard.appendChild(movieImgC)
         // movieCard.appendChild(movieContent)
         // rightSide.appendChild(movieCard)
-        var pageBody = document.getElementById('cardHere')
+      
         // pageBody.appendChild(rightSide)
 
         var testCard = document.createElement('div')
@@ -68,7 +70,7 @@ function checkInput() {
         var closeRev = document.createElement('i')
         var OpenRev = document.createElement('i')
         var revPara = document.createElement('p')
-        testCard.classList.add('card','col','s12','m6', 'l4',)
+        testCard.classList.add('card','col','s12','m6', 'l4', 'xl3')
         testCardImgCon.classList.add('card-image', 'waves-effect', 'waves-block', 'waves-light')
         testImage.classList.add('activator')
         testContentCont.classList.add('card-content')
@@ -78,7 +80,7 @@ function checkInput() {
         closeRev.classList.add('material-icons', 'right')
         closeRev.textContent = 'close'
         OpenRev.classList.add('material-icons', 'right')
-        OpenRev.textContent = 'close'
+        OpenRev.textContent = 'more_vert'
         testImage.setAttribute('src', 'http://image.tmdb.org/t/p/w342/'+data.results[i].poster_path)+'.jpg'
         testSpan.textContent = data.results[i].title
         testAnch.setAttribute('href', 'https://materializecss.com/cards.html')
