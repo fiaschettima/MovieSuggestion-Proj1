@@ -15,3 +15,6 @@ Use client-side storage to store persistent data.
 Have a clean repository that meets quality coding standards (file structure, naming conventions, follows best practices for class/id naming conventions, indentation, quality comments, etc.).
 Must utilize Git Branching / Merging. Git Branches based on Feature Built / GitHub Project Card, minimum of 30 meaningful commits per contributor.
 Have a quality README (with unique name, description, technologies used, screenshot, and link to deployed application).
+
+things to maybe  add
+https://materializecss.com/waves.html#!
