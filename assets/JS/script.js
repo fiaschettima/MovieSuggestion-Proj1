@@ -104,7 +104,6 @@ function checkInput() {
     })
 }
 
-export {userInput as userIn};
 // https://api.themoviedb.org/3/movie/414906/similar?api_key=07f3bf91adb1325ab2741c977ecdf895&language=en-US&page=1
 /* <div class="card">
 <div class="card-image waves-effect waves-block waves-light">
