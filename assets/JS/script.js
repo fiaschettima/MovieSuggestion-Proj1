@@ -168,107 +168,64 @@ function checkInput() {
 
     if (userInput.value == 'action') {
       userInput.value = 28;
+      runGenre();
     } else if (userInput.value == 'adventure') {
       userInput.value = 12; 
+      runGenre();
     } else if (userInput.value == 'animation') {
-      userInput.value = 16; 
+      userInput.value = 16;
+      runGenre(); 
     } else if (userInput.value == 'comedy') {
       userInput.value = 35; 
+      runGenre();
     } else if (userInput.value == 'crime') {
       userInput.value = 80; 
+      runGenre();
     } else if (userInput.value == 'documentary') {
-      userInput.value = 99; 
+      userInput.value = 99;
+      runGenre();
     } else if (userInput.value == 'drama') {
       userInput.value = 18; 
+      runGenre();
     } else if (userInput.value == 'family') {
       userInput.value = 10751; 
+      runGenre();
     } else if (userInput.value == 'fantasy') {
       userInput.value = 14; 
+      runGenre();
     } else if (userInput.value == 'history') {
       userInput.value = 36; 
+      runGenre();
     } else if (userInput.value == 'horror') {
       userInput.value = 27; 
+      runGenre();
     } else if (userInput.value == 'music') {
       userInput.value = 10402; 
+      runGenre();
     } else if (userInput.value == 'mystery') {
       userInput.value = 9648; 
+      runGenre();
     } else if (userInput.value == 'romance') {
       userInput.value = 10749; 
+      runGenre();
     } else if (userInput.value == 'scifi') {
       userInput.value = 878; 
+      runGenre();
     } else if (userInput.value == 'thriller') {
       userInput.value = 53; 
+      runGenre();
     } else if (userInput.value == 'war') {
       userInput.value = 10752; 
-      runShit();
+      runGenre();
     } else if (userInput.value == 'western') {
       userInput.value = 37; 
     } else {
       console.log("Please check spelling");
     }
-
-  //   var tmdbGenreURL = 'https://api.themoviedb.org/3/discover/movie?api_key=' + tmdbAPI + '&with_genres=' + userInput.value;
-
-  // fetch(tmdbGenreURL)
-  //     .then(function(response){
-  //         console.log(response)
-  //         return response.json();
-  // }).then(function(data){
-  //     console.log(data);
-      
-  //     ///////////////////////////////////////////////////////////////
-  //     var pageBody = document.getElementById('cardHere')
-  //     pageBody.innerHTML = "";
-  //     for(i=0; i < 6; i++){
-
-  //       var testCard = document.createElement('div')
-  //       var testCardImgCon = document.createElement('div')
-  //       var testImage = document.createElement('img')
-  //       var testContentCont = document.createElement('div')
-  //       var testSpan = document.createElement('span')
-  //       var testPar = document.createElement('p')
-  //       var testAnch = document.createElement('a')
-  //       var testDivreveal = document.createElement('div')
-  //       var testSpanRevTitle = document.createElement('span')
-  //       var closeRev = document.createElement('i')
-  //       var OpenRev = document.createElement('i')
-  //       var revPara = document.createElement('p')
-  //       testCard.classList.add('card','col', 's12','m6', 'l4', 'xl3')
-  //       testCardImgCon.classList.add('card-image', 'waves-effect', 'waves-block', 'waves-light')
-  //       testImage.classList.add('activator')
-  //       testContentCont.classList.add('card-content')
-  //       testSpan.classList.add('card-title', 'activator','grey-text', 'text-darken-4')
-  //       testDivreveal.classList.add('card-reveal')
-  //       testSpanRevTitle.classList.add('card-title','grey-text', 'text-darken-4')
-  //       closeRev.classList.add('material-icons', 'right')
-  //       closeRev.textContent = 'close'
-  //       OpenRev.classList.add('material-icons', 'right')
-  //       OpenRev.textContent = 'more_vert'
-  //       testImage.setAttribute('src', 'http://image.tmdb.org/t/p/w342/'+data.results[i].poster_path)+'.jpg'
-  //       testSpan.textContent = data.results[i].title
-  //       testAnch.setAttribute('href', 'https://materializecss.com/cards.html')
-  //       testAnch.textContent = 'Test Link'
-  //       testSpanRevTitle.textContent = data.results[i].title
-  //       revPara.textContent = data.results[i].overview
-  //       testCardImgCon.appendChild(testImage)
-  //       testSpan.appendChild(OpenRev)
-  //       testContentCont.appendChild(testSpan)
-  //       testPar.appendChild(testAnch)
-  //       testContentCont.appendChild(testPar)
-  //       testSpanRevTitle.appendChild(closeRev)
-  //       testDivreveal.appendChild(testSpanRevTitle)
-  //       testDivreveal.appendChild(revPara)
-  //       testCard.appendChild(testCardImgCon)
-  //       testCard.appendChild(testContentCont)
-  //       testCard.appendChild(testDivreveal)
-  //       pageBody.appendChild(testCard)
-
-  //       }
-  //   })
   }
 }}
 
-function runShit (){
+function runGenre (){
   var tmdbGenreURL = 'https://api.themoviedb.org/3/discover/movie?api_key=' + tmdbAPI + '&with_genres=' + userInput.value;
 
   fetch(tmdbGenreURL)
@@ -328,8 +285,6 @@ function runShit (){
         }
     })
 };
-
-// if (genreNumbers.indexOf(userInput.value)) --> userInput.value = w/e that key value is
 
 // https://api.themoviedb.org/3/movie/414906/similar?api_key=07f3bf91adb1325ab2741c977ecdf895&language=en-US&page=1
 /* <div class="card">
