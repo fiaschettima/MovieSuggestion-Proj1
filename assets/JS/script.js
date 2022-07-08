@@ -21,32 +21,7 @@ function checkInput() {
         var pageBody = document.getElementById('cardHere')
         pageBody.innerHTML = "";
         for(i=0; i < 6; i++){
-        // var newRow = document.createElement('div'); // make row
-        // var rightSide = document.createElement('div'); // make col
-        // var movieCard = document.createElement('div');// make card-----
-        // var movieImgC = document.createElement('div');// image and title------
-        // var movieContent = document.createElement('div');// card content---
-        // var movieImg = document.createElement('img')// add image
-        // var movieTitle = document.createElement('span')// floating title in img
-        // var movieText = document.createElement('p')// text for movie
-        // rightSide.classList.add('col','s12','m6', 'l4', 'hoverable');
-        // // newRow.classList.add('row')
-        // movieCard.classList.add('card')
-        // movieImgC.classList.add('card-image')
-        // movieImg.setAttribute('src', 'http://image.tmdb.org/t/p/w500/'+data.results[i].poster_path)+'.jpg'
-        // movieText.classList.add('card-content')
-        // movieTitle.classList.add('card-title')
-        // movieTitle.textContent = data.results[i].title
-        // movieText.textContent =  data.results[i].overview
-        // movieContent.appendChild(movieText)
-        // movieImgC.appendChild(movieImg)
-        // movieImgC.appendChild(movieTitle)
-        // movieCard.appendChild(movieImgC)
-        // movieCard.appendChild(movieContent)
-        // rightSide.appendChild(movieCard)
-      
-        // pageBody.appendChild(rightSide)
-
+   
         var testCard = document.createElement('div');
         var testCardImgCon = document.createElement('div');
         var testImage = document.createElement('img');
@@ -71,7 +46,7 @@ function checkInput() {
         OpenRev.classList.add('material-icons', 'right');
         OpenRev.textContent = 'more_vert';
         testImage.setAttribute('src', 'http://image.tmdb.org/t/p/w342/'+data.results[i].poster_path)+'.jpg';
-        testAnch.setAttribute('data-ytSearch', data.results[0].title);
+        testAnch.setAttribute('data-ytSearch', data.results[i].title);
         testSpan.textContent = data.results[i].title;
         testAnch.setAttribute('data-target', 'trailer');
         // testAnch.setAttribute('href', '#trailer')
@@ -94,6 +69,7 @@ function checkInput() {
         (function() {
           testAnch.addEventListener('click', function(e) {
             findyoutubeid(e.target.dataset.ytsearch)
+            console.log(e.target.dataset.ytsearch)
           })
         })(i)
 
@@ -114,6 +90,7 @@ function findyoutubeid(looking){
       console.log(data);
       trailerVID.setAttribute('src', '')
       trailerVID.setAttribute('src', 'https://www.youtube.com/embed/'+ data.items[0].id.videoId)
+      console.log(data.items[0].id.videoId)
   })
   }
 
