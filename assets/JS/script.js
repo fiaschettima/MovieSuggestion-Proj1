@@ -20,7 +20,8 @@ var submitBtn = document.getElementById("submit-btn");
 // New variable to check the radio buttons
 var radioBtns = document.getElementsByName("group1");
 
-// Variable to store the number values for each genre for the API
+// Variable to store the number values for each genre for the API -- not currently in use but present in case
+// someone comes up with a cleaner way to switch user input value that isn't making a long conditional
 var genreNumbers = [
   {  action: 28,
   adventure: 12,
@@ -37,7 +38,6 @@ var genreNumbers = [
   mystery: 9648,
   romance: 10749,
   scifi: 878,
-  // tvmovie: 10770, do we need this. what is a tv movie AND its two words (rude)
   thriller: 53,
   war: 10752,
   western: 37}
@@ -45,6 +45,8 @@ var genreNumbers = [
 
 submitBtn.addEventListener('click', checkInput);
 
+  // Separated TMDB API key out because it is needed for both urls
+  var tmdbAPI = '07f3bf91adb1325ab2741c977ecdf895';
 
 function checkInput() {
 
@@ -154,8 +156,15 @@ function checkInput() {
     console.log("Please put in a genre to search");
   }
 
+      // If there is input but it provides a bad url, ask the user to check spelling and note that the genres are limited
+    // else if (userInput.value in genreNumbers) {
+    //   console.log("fix ur search input!!");
+      // create modal that says
+      // "Input not valid, please check that genre name is spelled correctly -- please note that some genres are not supported"
+    // }
+
   // If the genre name provides an acceptable url, display movies in that genre
-  else if (response.ok == true) {
+  else {
 
     if (userInput.value == 'action') {
       userInput.value = 28;
@@ -191,11 +200,76 @@ function checkInput() {
       userInput.value = 53; 
     } else if (userInput.value == 'war') {
       userInput.value = 10752; 
+      runShit();
     } else if (userInput.value == 'western') {
       userInput.value = 37; 
+    } else {
+      console.log("Please check spelling");
     }
 
-    var tmdbGenreURL = 'https://api.themoviedb.org/3/discover/movie?api_key=' + tmdbAPI + '&with_genres=' + userInput.value;
+  //   var tmdbGenreURL = 'https://api.themoviedb.org/3/discover/movie?api_key=' + tmdbAPI + '&with_genres=' + userInput.value;
+
+  // fetch(tmdbGenreURL)
+  //     .then(function(response){
+  //         console.log(response)
+  //         return response.json();
+  // }).then(function(data){
+  //     console.log(data);
+      
+  //     ///////////////////////////////////////////////////////////////
+  //     var pageBody = document.getElementById('cardHere')
+  //     pageBody.innerHTML = "";
+  //     for(i=0; i < 6; i++){
+
+  //       var testCard = document.createElement('div')
+  //       var testCardImgCon = document.createElement('div')
+  //       var testImage = document.createElement('img')
+  //       var testContentCont = document.createElement('div')
+  //       var testSpan = document.createElement('span')
+  //       var testPar = document.createElement('p')
+  //       var testAnch = document.createElement('a')
+  //       var testDivreveal = document.createElement('div')
+  //       var testSpanRevTitle = document.createElement('span')
+  //       var closeRev = document.createElement('i')
+  //       var OpenRev = document.createElement('i')
+  //       var revPara = document.createElement('p')
+  //       testCard.classList.add('card','col', 's12','m6', 'l4', 'xl3')
+  //       testCardImgCon.classList.add('card-image', 'waves-effect', 'waves-block', 'waves-light')
+  //       testImage.classList.add('activator')
+  //       testContentCont.classList.add('card-content')
+  //       testSpan.classList.add('card-title', 'activator','grey-text', 'text-darken-4')
+  //       testDivreveal.classList.add('card-reveal')
+  //       testSpanRevTitle.classList.add('card-title','grey-text', 'text-darken-4')
+  //       closeRev.classList.add('material-icons', 'right')
+  //       closeRev.textContent = 'close'
+  //       OpenRev.classList.add('material-icons', 'right')
+  //       OpenRev.textContent = 'more_vert'
+  //       testImage.setAttribute('src', 'http://image.tmdb.org/t/p/w342/'+data.results[i].poster_path)+'.jpg'
+  //       testSpan.textContent = data.results[i].title
+  //       testAnch.setAttribute('href', 'https://materializecss.com/cards.html')
+  //       testAnch.textContent = 'Test Link'
+  //       testSpanRevTitle.textContent = data.results[i].title
+  //       revPara.textContent = data.results[i].overview
+  //       testCardImgCon.appendChild(testImage)
+  //       testSpan.appendChild(OpenRev)
+  //       testContentCont.appendChild(testSpan)
+  //       testPar.appendChild(testAnch)
+  //       testContentCont.appendChild(testPar)
+  //       testSpanRevTitle.appendChild(closeRev)
+  //       testDivreveal.appendChild(testSpanRevTitle)
+  //       testDivreveal.appendChild(revPara)
+  //       testCard.appendChild(testCardImgCon)
+  //       testCard.appendChild(testContentCont)
+  //       testCard.appendChild(testDivreveal)
+  //       pageBody.appendChild(testCard)
+
+  //       }
+  //   })
+  }
+}}
+
+function runShit (){
+  var tmdbGenreURL = 'https://api.themoviedb.org/3/discover/movie?api_key=' + tmdbAPI + '&with_genres=' + userInput.value;
 
   fetch(tmdbGenreURL)
       .then(function(response){
@@ -253,14 +327,7 @@ function checkInput() {
 
         }
     })
-
-    // If there is input but it provides a bad url, ask the user to check spelling and note that the genres are limited
-  } else if (genreNumbers.indexOf(userInput.value) === -1) {
-    console.log("fix ur search input!!");
-    // create modal that says
-    // "Input not valid, please check that genre name is spelled correctly -- please note that some genres are not supported"
-  }
-}}
+};
 
 // if (genreNumbers.indexOf(userInput.value)) --> userInput.value = w/e that key value is
 
