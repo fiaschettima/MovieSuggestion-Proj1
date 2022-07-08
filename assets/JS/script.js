@@ -1,7 +1,6 @@
 
 
-
-
+var trailerVID = document.getElementById('trailerVID')
 var userInput = document.getElementById("search-topic");
 var topicTitle = document.getElementById("title-name");
 var topicGenre = document.getElementById("genre-name");
@@ -11,12 +10,13 @@ submitBtn.addEventListener('click', findyoutubeid);
 
 function findyoutubeid(){
 var youtubeAPI = 'AIzaSyDEMdWu3lqGoSduYcL2p7LMJwCINR_eA0o'
-var youtubeSearchUrl = 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q='+userInput.value +'trailer&videoEmbeddable=videoEmbeddableUnspecified&key='+ youtubeAPI;
+var youtubeSearchUrl = 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q='+this.dataset.ytsearch +'trailer&videoEmbeddable=videoEmbeddableUnspecified&key='+ youtubeAPI;
 fetch(youtubeSearchUrl)
     .then(function(response){
         return response.json();
 }).then(function(data){
     console.log(data);
+    trailerVID.setAttribute('src', 'https://www.youtube.com/embed/'+ data.items[0].id.videoId)
 })
 }
 
@@ -26,7 +26,6 @@ function checkInput() {
 
     fetch(tmdbURL)
         .then(function(response){
-            console.log(response)
             return response.json();
     }).then(function(data){
         console.log(data);
@@ -86,6 +85,8 @@ function checkInput() {
         testImage.setAttribute('src', 'http://image.tmdb.org/t/p/w342/'+data.results[i].poster_path)+'.jpg'
         testSpan.textContent = data.results[i].title
         testAnch.setAttribute('href', '#trailer')
+        testAnch.setAttribute('data-ytSearch', data.results[0].title)
+        testAnch.setAttribute('onclick', findyoutubeid)
         testAnch.classList.add('waves-effect', 'waves-light', 'modal-trigger', 'findtrailer')
         testAnch.textContent = 'Watch The Trailer'
         testSpanRevTitle.textContent = data.results[i].title
@@ -102,14 +103,17 @@ function checkInput() {
         testCard.appendChild(testContentCont)
         testCard.appendChild(testDivreveal)
         pageBody.appendChild(testCard)
-        // testAnch.addEventListener('click', function(event){
-        //   console.log(event.target)
-        // })
+        var trailerButton = document.getElementsByClassName('findtrailer')
+
         }
         
-
+        console.log(trailerButton[0].dataset.ytsearch)
     })
 }
 
+// console.log(trailerButton)
+// trailerButton.addEventListener('click', function(event){
+//   console.log(event.target)
+// })
 // https://api.themoviedb.org/3/movie/414906/similar?api_key=07f3bf91adb1325ab2741c977ecdf895&language=en-US&page=1
 
