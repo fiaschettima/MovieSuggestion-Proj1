@@ -70,6 +70,7 @@ function checkInput() {
         var closeRev = document.createElement('i')
         var OpenRev = document.createElement('i')
         var revPara = document.createElement('p')
+        var testBtn = document.createElement('button')
         testCard.classList.add('card','col','s12','m6', 'l4', 'xl3')
         testCardImgCon.classList.add('card-image', 'waves-effect', 'waves-block', 'waves-light')
         testImage.classList.add('activator')
@@ -85,6 +86,9 @@ function checkInput() {
         testSpan.textContent = data.results[i].title
         testAnch.setAttribute('href', 'https://materializecss.com/cards.html')
         testAnch.textContent = 'Test Link'
+        testBtn.textContent = 'Find Similar Movies'
+        testBtn.classList.add('waves-effect', 'waves-light', 'btn', 'similar-btn')
+        // testBtn.setAttribute('data-title', data.results[i].title)
         testSpanRevTitle.textContent = data.results[i].title
         revPara.textContent = data.results[i].overview
         testCardImgCon.appendChild(testImage)
@@ -92,6 +96,7 @@ function checkInput() {
         testContentCont.appendChild(testSpan)
         testPar.appendChild(testAnch)
         testContentCont.appendChild(testPar)
+        testContentCont.appendChild(testBtn)
         testSpanRevTitle.appendChild(closeRev)
         testDivreveal.appendChild(testSpanRevTitle)
         testDivreveal.appendChild(revPara)
@@ -99,14 +104,26 @@ function checkInput() {
         testCard.appendChild(testContentCont)
         testCard.appendChild(testDivreveal)
         pageBody.appendChild(testCard)
-
+        
         }
+        
     })
 }
-<<<<<<< HEAD
+document.getElementsByClassName('cardHere').addEventListener('click', function(event){
+  
+  if(event.target == 'button') {
+    console.log(event.target.data-title)
 
-=======
->>>>>>> a5a755697585f3bad790ef9e8c80b2239711686c
+  } else {
+    return
+  }
+  
+  // console.log(data.results[this].title)
+    // console.log(event.target.parentElement.parentElement.childNodes.);
+    // event.target.parentElement.parentElement.childNodes[0].textContent.trim()
+})
+
+
 // https://api.themoviedb.org/3/movie/414906/similar?api_key=07f3bf91adb1325ab2741c977ecdf895&language=en-US&page=1
 /* <div class="card">
 <div class="card-image waves-effect waves-block waves-light">
