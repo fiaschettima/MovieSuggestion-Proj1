@@ -21,8 +21,8 @@ var submitBtn = document.getElementById("submit-btn");
 var radioBtns = document.getElementsByName("group1");
 
 // Variable to store the number values for each genre for the API
-var genreNumbers = {
-  action: 28,
+var genreNumbers = [
+  {  action: 28,
   adventure: 12,
   animation: 16,
   comedy: 35,
@@ -40,8 +40,8 @@ var genreNumbers = {
   // tvmovie: 10770, do we need this. what is a tv movie AND its two words (rude)
   thriller: 53,
   war: 10752,
-  western: 37
-};
+  western: 37}
+];
 
 submitBtn.addEventListener('click', checkInput);
 
@@ -155,7 +155,47 @@ function checkInput() {
   }
 
   // If the genre name provides an acceptable url, display movies in that genre
-  else if (response.ok) {
+  else if (response.ok == true) {
+
+    if (userInput.value == 'action') {
+      userInput.value = 28;
+    } else if (userInput.value == 'adventure') {
+      userInput.value = 12; 
+    } else if (userInput.value == 'animation') {
+      userInput.value = 16; 
+    } else if (userInput.value == 'comedy') {
+      userInput.value = 35; 
+    } else if (userInput.value == 'crime') {
+      userInput.value = 80; 
+    } else if (userInput.value == 'documentary') {
+      userInput.value = 99; 
+    } else if (userInput.value == 'drama') {
+      userInput.value = 18; 
+    } else if (userInput.value == 'family') {
+      userInput.value = 10751; 
+    } else if (userInput.value == 'fantasy') {
+      userInput.value = 14; 
+    } else if (userInput.value == 'history') {
+      userInput.value = 36; 
+    } else if (userInput.value == 'horror') {
+      userInput.value = 27; 
+    } else if (userInput.value == 'music') {
+      userInput.value = 10402; 
+    } else if (userInput.value == 'mystery') {
+      userInput.value = 9648; 
+    } else if (userInput.value == 'romance') {
+      userInput.value = 10749; 
+    } else if (userInput.value == 'scifi') {
+      userInput.value = 878; 
+    } else if (userInput.value == 'thriller') {
+      userInput.value = 53; 
+    } else if (userInput.value == 'war') {
+      userInput.value = 10752; 
+    } else if (userInput.value == 'western') {
+      userInput.value = 37; 
+    }
+
+    var tmdbGenreURL = 'https://api.themoviedb.org/3/discover/movie?api_key=' + tmdbAPI + '&with_genres=' + userInput.value;
 
   fetch(tmdbGenreURL)
       .then(function(response){
@@ -221,6 +261,8 @@ function checkInput() {
     // "Input not valid, please check that genre name is spelled correctly -- please note that some genres are not supported"
   }
 }}
+
+// if (genreNumbers.indexOf(userInput.value)) --> userInput.value = w/e that key value is
 
 // https://api.themoviedb.org/3/movie/414906/similar?api_key=07f3bf91adb1325ab2741c977ecdf895&language=en-US&page=1
 /* <div class="card">
