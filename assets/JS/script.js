@@ -108,6 +108,7 @@ function checkInput() {
         (function() {
           testBtn.addEventListener('click', function(e) {
             var movTitle = e.path[0].dataset.title;
+            exportInfo(movTitle);
             // transfer(movTitle);
             console.log(movTitle);
             
@@ -118,7 +119,14 @@ function checkInput() {
     
     })
 }
-export { checkInput };
+
+function findSimilar(movieTitle){
+  console.log(movieTitle);
+  var tmdbAPI = '07f3bf91adb1325ab2741c977ecdf895';
+  var tmdbURL = 'https://api.themoviedb.org/3/search/movie?api_key=07f3bf91adb1325ab2741c977ecdf895&query=' + userInput.value + '&api_key=' + tmdbAPI;
+}
+
+
 
 // addEventListener('click', function(event){
   
