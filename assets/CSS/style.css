@@ -9,7 +9,12 @@ html, body, .my-wrapper {
 #searchedCards {
     border: 1px solid black;
 }
-.cardHere .card{
+/* Commented out because the height is uniform when sized with the card and column classes, and was causing the issue 
+    with images taking over the card */
+/* .cardHere .card{ */
     /* height: 845px; for option one of how to  */
-    height: 620px;
-}
+    /* height: 620px;
+} */
+
+/* Can edit font size for card-title to fix issue with cards with longer titles being slightly bigger from around 1200-1250px screen */
+/* if statement around declared variable at beginning -- if title checked use normal, else use link for genre changes value of url variable*/
