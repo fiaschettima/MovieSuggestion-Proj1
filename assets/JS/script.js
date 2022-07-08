@@ -152,6 +152,16 @@ function findSimilar(movieTitle){
           testCard.appendChild(testContentCont)
           testCard.appendChild(testDivreveal)
           pageBody.appendChild(testCard);
+
+          (function() {
+            testBtn.addEventListener('click', function(e) {
+              var movTitle = e.path[0].dataset.title;
+
+              console.log(movTitle);
+              findSimilar(movTitle);
+    
+            })
+          })(i)
         }
     })
 }
