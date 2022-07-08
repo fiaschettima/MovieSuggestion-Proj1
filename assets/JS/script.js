@@ -12,6 +12,7 @@
 // }
 // findyoutubeid();
 
+
 var userInput = document.getElementById("search-topic");
 var topicTitle = document.getElementById("title-name");
 var topicGenre = document.getElementById("genre-name");
@@ -104,23 +105,20 @@ function checkInput() {
         testCard.appendChild(testContentCont)
         testCard.appendChild(testDivreveal)
         pageBody.appendChild(testCard);
-        (function(event) {
+        (function() {
           testBtn.addEventListener('click', function(e) {
-            console.log(e.path[0].dataset.title)
+            var movTitle = e.path[0].dataset.title;
+            // transfer(movTitle);
+            console.log(movTitle);
+            
           })
         })(i)
         
         }
-        // console.log(i)
-        // var cards = document.getElementsByClassName('card')
-        // console.log(cards[0].testSpan.textContent)
-        
-        // console.log(document.getElementsByClassName('similar-btn'))
-        // .addEventListener('click', function(event) {
-        //     console.log(testBtn.dataset.title)
-        // })
+    
     })
 }
+export {checkInput};
 
 // addEventListener('click', function(event){
   

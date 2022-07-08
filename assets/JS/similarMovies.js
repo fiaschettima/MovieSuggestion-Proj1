@@ -1,2 +1,4 @@
-import {userIn} from './assests/JS/script.js';
+import {checkInput} from './script.js';
+
+console.log(checkInput());
 
