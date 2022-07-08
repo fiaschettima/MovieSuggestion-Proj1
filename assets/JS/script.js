@@ -118,7 +118,7 @@ function checkInput() {
     
     })
 }
-export {checkInput};
+export { checkInput };
 
 // addEventListener('click', function(event){
   
