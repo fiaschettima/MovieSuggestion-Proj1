@@ -6,3 +6,10 @@ html, body, .my-wrapper {
     color: #000000;
     background-color: #ECFBFF;
 }
+#searchedCards {
+    border: 1px solid black;
+}
+.cardHere .card{
+    /* height: 845px; for option one of how to  */
+    height: 620px;
+}
