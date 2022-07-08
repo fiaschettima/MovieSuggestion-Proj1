@@ -1,22 +1,24 @@
 
-// function findyoutubeid(){
-// var youtubeAPI = 'AIzaSyDEMdWu3lqGoSduYcL2p7LMJwCINR_eA0o'
-// var youtubeSearchUrl = 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q='+movieName+'&videoEmbeddable=videoEmbeddableUnspecified&key='+ youtubeAPI;
-// fetch(youtubeSearchUrl)
-//     .then(function(response){
-//         console.log(response)
-//         return response.json();
-// }).then(function(data){
-//     console.log(data);
-// })
-// }
-// findyoutubeid();
+
+
 
 var userInput = document.getElementById("search-topic");
 var topicTitle = document.getElementById("title-name");
 var topicGenre = document.getElementById("genre-name");
 var submitBtn = document.getElementById("submit-btn");
 submitBtn.addEventListener('click', checkInput);
+submitBtn.addEventListener('click', findyoutubeid);
+
+function findyoutubeid(){
+var youtubeAPI = 'AIzaSyDEMdWu3lqGoSduYcL2p7LMJwCINR_eA0o'
+var youtubeSearchUrl = 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q='+userInput.value +'trailer&videoEmbeddable=videoEmbeddableUnspecified&key='+ youtubeAPI;
+fetch(youtubeSearchUrl)
+    .then(function(response){
+        return response.json();
+}).then(function(data){
+    console.log(data);
+})
+}
 
 function checkInput() {
     var tmdbAPI = '07f3bf91adb1325ab2741c977ecdf895';
@@ -84,7 +86,7 @@ function checkInput() {
         testImage.setAttribute('src', 'http://image.tmdb.org/t/p/w342/'+data.results[i].poster_path)+'.jpg'
         testSpan.textContent = data.results[i].title
         testAnch.setAttribute('href', '#trailer')
-        testAnch.classList.add('waves-effect', 'waves-light', 'btn', 'modal-trigger')
+        testAnch.classList.add('waves-effect', 'waves-light', 'modal-trigger', 'findtrailer')
         testAnch.textContent = 'Watch The Trailer'
         testSpanRevTitle.textContent = data.results[i].title
         revPara.textContent = data.results[i].overview
@@ -100,9 +102,14 @@ function checkInput() {
         testCard.appendChild(testContentCont)
         testCard.appendChild(testDivreveal)
         pageBody.appendChild(testCard)
-
+        // testAnch.addEventListener('click', function(event){
+        //   console.log(event.target)
+        // })
         }
+        
+
     })
 }
+
 // https://api.themoviedb.org/3/movie/414906/similar?api_key=07f3bf91adb1325ab2741c977ecdf895&language=en-US&page=1
 

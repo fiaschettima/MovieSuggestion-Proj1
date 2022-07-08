@@ -9,7 +9,6 @@ html, body, .my-wrapper {
 #searchedCards {
     border: 1px solid black;
 }
-.cardHere .card{
+/* .cardHere .card{
     /* height: 845px; for option one of how to  */
     /* height: 40rem; */
-}
