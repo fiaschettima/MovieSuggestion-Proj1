@@ -119,9 +119,19 @@ function checkInput() {
 // Checks if the genre button is checked and runs the genre url if so
 } else if (radioBtns[1].checked) {
   console.log("genre is selected");
-  // Do we need to create separate sections or functions? Will this take data from first url regardless?
-  // check for invalid genre 
-  var tmdbGenreURL = 'https://api.themoviedb.org/3/discover/movie?api_key=' + tmdbAPI + '&with_genres=28'; //+ userInput.value;
+  userInput.value=userInput.value.toLowerCase();
+  // For some reason this link isn't calling the correct genres, it worked previously with the exact same wording,
+  // it works with other parameters such as runtime, I don't know what's going on -- need to switch input names to 
+  // number values for the api
+  var tmdbGenreURL = 'https://api.themoviedb.org/3/discover/movie?api_key=' + tmdbAPI + '&with_genres=' + userInput.value;
+
+  // If there is no input in the form, ask the user to first put something
+  if (!userInput.value) {
+    console.log("Please put in a genre to search");
+  }
+
+  // If the genre name provides an acceptable url, display movies in that genre
+  else if (response.ok) {
 
   fetch(tmdbGenreURL)
       .then(function(response){
@@ -179,6 +189,13 @@ function checkInput() {
 
         }
     })
+
+    // If there is input but it provides a bad url, ask the user to check spelling and note that the genres are limited
+  } else {
+    console.log("fix ur search input!!");
+    // create modal that says
+    // "Input not valid, please check that genre name is spelled correctly -- please note that some genres are not supported"
+  }
 }}
 
 // https://api.themoviedb.org/3/movie/414906/similar?api_key=07f3bf91adb1325ab2741c977ecdf895&language=en-US&page=1
