@@ -1,4 +1,5 @@
-/* Helps to format input field */
+/* Helps to format input field in the center of the page -- looks like this isn't being used/ commented out in the html? 
+    As of 7/8 11:30AM PST */
 html, body, .my-wrapper {
     height: 100%;
 }
