@@ -36,8 +36,8 @@ var genreNumbers = {
   music: 10402,
   mystery: 9648,
   romance: 10749,
-  science fiction: 878,
-  tv movie: 10770,
+  scifi: 878,
+  // tvmovie: 10770, do we need this. what is a tv movie AND its two words (rude)
   thriller: 53,
   war: 10752,
   western: 37
@@ -51,7 +51,7 @@ function checkInput() {
   // Separated TMDB API key out because it is needed for both urls
   var tmdbAPI = '07f3bf91adb1325ab2741c977ecdf895';
 
-  // Checks if the title button is checked and runs the regular url if so -- BOTH CHECK CORRECTLY
+  // Checks if the title button is checked and runs the regular url if so
   if (radioBtns[0].checked) {
     console.log("title is selected");
     var tmdbURL = 'https://api.themoviedb.org/3/search/movie?api_key=07f3bf91adb1325ab2741c977ecdf895&query=' + userInput.value + '&api_key=' + tmdbAPI;
@@ -137,13 +137,16 @@ function checkInput() {
 
         }
     })
+
 // Checks if the genre button is checked and runs the genre url if so
 } else if (radioBtns[1].checked) {
   console.log("genre is selected");
+
+  // Convert user input to lowercase to avoid case issues
   userInput.value=userInput.value.toLowerCase();
-  // For some reason this link isn't calling the correct genres, it worked previously with the exact same wording,
-  // it works with other parameters such as runtime, I don't know what's going on -- need to switch input names to 
-  // number values for the api
+
+  // Need to check userInput.value against our object genreNumbers --> if they match, set userInput.value to the corresponding
+  // pair's value
   var tmdbGenreURL = 'https://api.themoviedb.org/3/discover/movie?api_key=' + tmdbAPI + '&with_genres=' + userInput.value;
 
   // If there is no input in the form, ask the user to first put something
@@ -212,7 +215,7 @@ function checkInput() {
     })
 
     // If there is input but it provides a bad url, ask the user to check spelling and note that the genres are limited
-  } else {
+  } else if (genreNumbers.indexOf(userInput.value) === -1) {
     console.log("fix ur search input!!");
     // create modal that says
     // "Input not valid, please check that genre name is spelled correctly -- please note that some genres are not supported"
