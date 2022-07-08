@@ -6,17 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--Import materialize.css-->
+    <!--Import materialize  -->  
     <link type="text/css" rel="stylesheet" href="./assets/CSS/materialize.min.css"  media="screen,projection"/>
     <link rel="stylesheet" href="./assets/CSS/style.css"/>
-    <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Document</title>
   </head>
-
+<!-- above input field add a description of how to use the app when we figure that out -->
   <body>
     <!-- Create search form to search by movie -->
-    <div class="container valign-wrapper my-wrapper">
-    <div class="row">
+    <!-- <div class="container valign-wrapper my-wrapper"> -->
+    <div class="row" id="searchContainer">
       <div class="input-field col s12 my-colors">
         
         <input placeholder="search movie" id="search-topic" type="text" class="validate">
@@ -39,9 +39,13 @@
         </form>
       </div>
     </div>
-  </div>
+      <div class="row">
+        <div id="cardHere" class="cardHere">
+      </div>
+    </div>
+    
+  <!-- </div> -->
     <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/ue80QwXMRHg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
-    <!--JavaScript at end of body for optimized loading-->
     <script type="text/javascript" src="./assets/JS/materialize.min.js"></script>
     <script src="./assets/JS/script.js"></script>
   </body>
