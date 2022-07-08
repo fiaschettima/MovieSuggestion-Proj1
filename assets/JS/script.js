@@ -16,12 +16,29 @@ var userInput = document.getElementById("search-topic");
 var topicTitle = document.getElementById("title-name");
 var topicGenre = document.getElementById("genre-name");
 var submitBtn = document.getElementById("submit-btn");
+
+// New variable to check the radio buttons
+var radioBtns = document.getElementsByName("group1");
+
 submitBtn.addEventListener('click', checkInput);
 
-function checkInput() {
-    var tmdbAPI = '07f3bf91adb1325ab2741c977ecdf895';
-    var tmdbURL = 'https://api.themoviedb.org/3/search/movie?api_key=07f3bf91adb1325ab2741c977ecdf895&query=' + userInput.value + '&api_key=' + tmdbAPI;
 
+function checkInput() {
+
+  // Separated TMDB API key out because it is needed for both urls
+  var tmdbAPI = '07f3bf91adb1325ab2741c977ecdf895';
+
+  // Checks if the title button is checked and runs the regular url if so -- BOTH CHECK CORRECTLY
+  if (radioBtns[0].checked) {
+    console.log("title is selected");
+    var tmdbURL = 'https://api.themoviedb.org/3/search/movie?api_key=07f3bf91adb1325ab2741c977ecdf895&query=' + userInput.value + '&api_key=' + tmdbAPI;
+  
+  // Checks if the genre button is checked and runs the genre url if so
+  } else if (radioBtns[1].checked) {
+    console.log("genre is selected");
+    // Problem is, needs to check the movie selected first to get the genres of that movie
+    var tmdbGenreURL = ''
+  }
     fetch(tmdbURL)
         .then(function(response){
             console.log(response)
