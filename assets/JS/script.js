@@ -83,8 +83,9 @@ function checkInput() {
         OpenRev.textContent = 'more_vert'
         testImage.setAttribute('src', 'http://image.tmdb.org/t/p/w342/'+data.results[i].poster_path)+'.jpg'
         testSpan.textContent = data.results[i].title
-        testAnch.setAttribute('href', 'https://materializecss.com/cards.html')
-        testAnch.textContent = 'Test Link'
+        testAnch.setAttribute('href', '#trailer')
+        testAnch.classList.add('waves-effect', 'waves-light', 'btn', 'modal-trigger')
+        testAnch.textContent = 'Watch The Trailer'
         testSpanRevTitle.textContent = data.results[i].title
         revPara.textContent = data.results[i].overview
         testCardImgCon.appendChild(testImage)
@@ -104,16 +105,4 @@ function checkInput() {
     })
 }
 // https://api.themoviedb.org/3/movie/414906/similar?api_key=07f3bf91adb1325ab2741c977ecdf895&language=en-US&page=1
-/* <div class="card">
-<div class="card-image waves-effect waves-block waves-light">
-  <img class="activator" src="images/office.jpg">
-</div>
-<div class="card-content">
-  <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-  <p><a href="#">This is a link</a></p>
-</div>
-<div class="card-reveal">
-  <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-  <p>Here is some more information about this product that is only revealed once clicked on.</p>
-</div>
-</div> */
+
