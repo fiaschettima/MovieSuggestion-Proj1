@@ -88,7 +88,7 @@ function checkInput() {
         testAnch.textContent = 'Test Link'
         testBtn.textContent = 'Find Similar Movies'
         testBtn.classList.add('waves-effect', 'waves-light', 'btn', 'similar-btn')
-        // testBtn.setAttribute('data-title', data.results[i].title)
+        testBtn.setAttribute('data-title', data.results[i].title)
         testSpanRevTitle.textContent = data.results[i].title
         revPara.textContent = data.results[i].overview
         testCardImgCon.appendChild(testImage)
@@ -103,25 +103,38 @@ function checkInput() {
         testCard.appendChild(testCardImgCon)
         testCard.appendChild(testContentCont)
         testCard.appendChild(testDivreveal)
-        pageBody.appendChild(testCard)
+        pageBody.appendChild(testCard);
+        (function(event) {
+          testBtn.addEventListener('click', function(e) {
+            console.log(e.path[0].dataset.title)
+          })
+        })(i)
         
         }
+        // console.log(i)
+        // var cards = document.getElementsByClassName('card')
+        // console.log(cards[0].testSpan.textContent)
         
+        // console.log(document.getElementsByClassName('similar-btn'))
+        // .addEventListener('click', function(event) {
+        //     console.log(testBtn.dataset.title)
+        // })
     })
 }
-document.getElementsByClassName('cardHere').addEventListener('click', function(event){
-  
-  if(event.target == 'button') {
-    console.log(event.target.data-title)
 
-  } else {
-    return
-  }
+// addEventListener('click', function(event){
   
-  // console.log(data.results[this].title)
-    // console.log(event.target.parentElement.parentElement.childNodes.);
-    // event.target.parentElement.parentElement.childNodes[0].textContent.trim()
-})
+//   if(event.target == 'button') {
+//     console.log(event.target.data-title)
+
+//   } else {
+//     return
+//   }
+  
+//   // console.log(data.results[this].title)
+//     // console.log(event.target.parentElement.parentElement.childNodes.);
+//     // event.target.parentElement.parentElement.childNodes[0].textContent.trim()
+// })
 
 
 // https://api.themoviedb.org/3/movie/414906/similar?api_key=07f3bf91adb1325ab2741c977ecdf895&language=en-US&page=1
