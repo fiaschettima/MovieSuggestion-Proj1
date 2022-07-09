@@ -10,7 +10,7 @@ submitBtn.addEventListener('click', checkInput);
 
 function checkInput() {
     var tmdbAPI = '07f3bf91adb1325ab2741c977ecdf895';
-    var tmdbURL = 'https://api.themoviedb.org/3/search/movie?api_key=07f3bf91adb1325ab2741c977ecdf895&query=' + userInput.value + '&api_key=' + tmdbAPI;
+    var tmdbURL = 'https://api.themoviedb.org/3/search/movie?api_key='+tmdbAPI+'&query=' + userInput.value;
 
     fetch(tmdbURL)
         .then(function(response){
@@ -20,15 +20,16 @@ function checkInput() {
         ///////////////////////////////////////////////////////////////
         var pageBody = document.getElementById('cardHere')
         pageBody.innerHTML = "";
-        for(i=0; i < 6; i++){
-   
+        for(i=0; i < data.results.length; i++){
+          if(data.results[i].poster_path === null){
+            console.log('No poster')
+          }else{
         var testCard = document.createElement('div');
         var testCardImgCon = document.createElement('div');
         var testImage = document.createElement('img');
         var testContentCont = document.createElement('div');
         var testSpan = document.createElement('span');
         var testPar = document.createElement('p');
-        var testAnch = document.createElement('button');
         var testDivreveal = document.createElement('div');
         var testSpanRevTitle = document.createElement('span');
         var closeRev = document.createElement('i');
@@ -46,9 +47,9 @@ function checkInput() {
         OpenRev.classList.add('material-icons', 'right');
         OpenRev.textContent = 'more_vert';
         testImage.setAttribute('src', 'http://image.tmdb.org/t/p/w342/'+data.results[i].poster_path)+'.jpg';
-        testAnch.setAttribute('data-ytSearch', data.results[i].title);
+        var testAnch = document.createElement('a');
         testSpan.textContent = data.results[i].title;
-        testAnch.setAttribute('data-target', 'trailer');
+        testAnch.setAttribute('href', '#trailer');
         // testAnch.setAttribute('href', '#trailer')
         testAnch.classList.add('waves-effect','btn', 'waves-light', 'modal-trigger', 'findtrailer');
         testAnch.textContent = 'Watch The Trailer';
@@ -68,18 +69,21 @@ function checkInput() {
         pageBody.appendChild(testCard);
         (function() {
           testAnch.addEventListener('click', function(e) {
-            findyoutubeid(e.target.dataset.ytsearch)
+            // findyoutubeid(e.target.dataset.ytsearch)
             console.log(e.target.dataset.ytsearch)
           })
         })(i)
 
         }
-        
+      }
         // console.log(trailerButton[0].dataset.ytsearch)
     })
 }
-// var trailerButton = document.getElementsByClassName('findtrailer')
-// trailerButton.addEventListener('click', findyoutubeid)
+// document.addEventListener('DOMContentLoaded', function() {
+//   var elems = document.querySelectorAll('.modal');
+//   var instances = M.Modal.init(elems);
+//   instances.open();
+// });
 function findyoutubeid(looking){
   var youtubeAPI = 'AIzaSyDEMdWu3lqGoSduYcL2p7LMJwCINR_eA0o'
   var youtubeSearchUrl = 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q='+ looking +'trailer&videoEmbeddable=videoEmbeddableUnspecified&key='+ youtubeAPI;
@@ -93,10 +97,3 @@ function findyoutubeid(looking){
       console.log(data.items[0].id.videoId)
   })
   }
-
-// console.log(trailerButton)
-// trailerButton.addEventListener('click', function(event){
-//   console.log(event.target)
-// })
-// https://api.themoviedb.org/3/movie/414906/similar?api_key=07f3bf91adb1325ab2741c977ecdf895&language=en-US&page=1
-
