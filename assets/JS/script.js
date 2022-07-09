@@ -43,7 +43,11 @@ var genreNumbers = [
   western: 37}
 ];
 
-submitBtn.addEventListener('click', checkInput);
+submitBtn.addEventListener('click', function (){
+  if (!userInput.value) {
+    userInput.value = "Please add a movie title or genre name";
+  } else {checkInput();}
+});
 
   // Separated TMDB API key out because it is needed for both urls
   var tmdbAPI = '07f3bf91adb1325ab2741c977ecdf895';
@@ -69,7 +73,8 @@ function checkInput() {
         if (data.results.length == 0) {
           userInput.value = "No results found";
           return;
-        } else {
+        }
+        else {
         ///////////////////////////////////////////////////////////////
         var pageBody = document.getElementById('cardHere')
         pageBody.innerHTML = "";
