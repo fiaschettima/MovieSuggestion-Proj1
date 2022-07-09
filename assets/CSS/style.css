@@ -1,15 +1,25 @@
+/* Helps to format input field in the center of the page -- looks like this isn't being used/ commented out in the html? 
+    As of 7/8 11:30AM PST */
 html, body, .my-wrapper {
     height: 100%;
 }
 
+/* Changes colors for input field to make it more legible and appealing */
 .my-colors {
     color: #000000;
     background-color: #ECFBFF;
 }
+
+/* Looks like this id isn't being used so far? As of 7/8 11:30AM PST */
 #searchedCards {
     border: 1px solid black;
 }
-.cardHere .card{
+/* Commented out because the height is uniform when sized with the card and column classes, and was causing the issue 
+    with images taking over the card */
+/* .cardHere .card{ */
     /* height: 845px; for option one of how to  */
-    height: 620px;
-}
+    /* height: 620px;
+} */
+
+/* Can edit font size for card-title to fix issue with cards with longer titles being slightly bigger from around 1200-1250px screen */
+/* if statement around declared variable at beginning -- if title checked use normal, else use link for genre changes value of url variable*/
