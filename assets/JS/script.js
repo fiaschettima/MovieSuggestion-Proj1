@@ -243,7 +243,7 @@ function runGenre (){
         var testContentCont = document.createElement('div')
         var testSpan = document.createElement('span')
         var testPar = document.createElement('p')
-        var testAnch = document.createElement('a')
+        // var testAnch = document.createElement('a')
         var testDivreveal = document.createElement('div')
         var testSpanRevTitle = document.createElement('span')
         var closeRev = document.createElement('i')
@@ -262,10 +262,14 @@ function runGenre (){
         OpenRev.textContent = 'more_vert'
         testImage.setAttribute('src', 'http://image.tmdb.org/t/p/w342/'+data.results[i].poster_path)+'.jpg'
         testSpan.textContent = data.results[i].title
-        testAnch.setAttribute('href', 'https://materializecss.com/cards.html')
-        testAnch.textContent = 'Test Link'
+        // testAnch.setAttribute('href', 'https://materializecss.com/cards.html')
+        // testAnch.textContent = 'Test Link'
         testSpanRevTitle.textContent = data.results[i].title
         revPara.textContent = data.results[i].overview
+        var testAnch = document.createElement('a');
+        testAnch.setAttribute('href', '#modal1');
+        testAnch.classList.add('waves-effect','btn', 'waves-light', 'modal-trigger', 'findtrailer');
+        testAnch.textContent = 'Watch The Trailer';
         testCardImgCon.appendChild(testImage)
         testSpan.appendChild(OpenRev)
         testContentCont.appendChild(testSpan)
@@ -277,7 +281,13 @@ function runGenre (){
         testCard.appendChild(testCardImgCon)
         testCard.appendChild(testContentCont)
         testCard.appendChild(testDivreveal)
-        pageBody.appendChild(testCard)
+        pageBody.appendChild(testCard);
+        (function() {
+          testAnch.addEventListener('click', function(e) {
+            // findyoutubeid(e.target.dataset.ytsearch)
+            console.log(e.target.dataset.ytsearch)
+          })
+        })(i)
       }
     })
 };
