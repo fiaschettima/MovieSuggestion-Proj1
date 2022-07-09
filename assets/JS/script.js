@@ -43,6 +43,14 @@ var genreNumbers = [
   western: 37}
 ];
 
+var modalsidk = document.getElementById(modal1);
+
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.modal');
+  var instances = M.Modal.init(elems);
+  instances.open();
+});
+
 submitBtn.addEventListener('click', function (){
   if (!userInput.value) {
     userInput.value = "Please add a movie title or genre name";
@@ -85,7 +93,7 @@ function checkInput() {
         var testContentCont = document.createElement('div')
         var testSpan = document.createElement('span')
         var testPar = document.createElement('p')
-        var testAnch = document.createElement('a')
+        // var testAnch = document.createElement('a')
         var testDivreveal = document.createElement('div')
         var testSpanRevTitle = document.createElement('span')
         var closeRev = document.createElement('i')
@@ -104,10 +112,14 @@ function checkInput() {
         OpenRev.textContent = 'more_vert'
         testImage.setAttribute('src', 'http://image.tmdb.org/t/p/w342/'+data.results[i].poster_path)+'.jpg'
         testSpan.textContent = data.results[i].title
-        testAnch.setAttribute('href', 'https://materializecss.com/cards.html')
-        testAnch.textContent = 'Test Link'
+        // testAnch.setAttribute('href', 'https://materializecss.com/cards.html')
+        // testAnch.textContent = 'Test Link'
         testSpanRevTitle.textContent = data.results[i].title
         revPara.textContent = data.results[i].overview
+        var testAnch = document.createElement('a');
+        testAnch.setAttribute('href', '#modal1');
+        testAnch.classList.add('waves-effect','btn', 'waves-light', 'modal-trigger', 'findtrailer');
+        testAnch.textContent = 'Watch The Trailer';
         testCardImgCon.appendChild(testImage)
         testSpan.appendChild(OpenRev)
         testContentCont.appendChild(testSpan)
@@ -119,7 +131,13 @@ function checkInput() {
         testCard.appendChild(testCardImgCon)
         testCard.appendChild(testContentCont)
         testCard.appendChild(testDivreveal)
-        pageBody.appendChild(testCard)
+        pageBody.appendChild(testCard);
+        (function() {
+          testAnch.addEventListener('click', function(e) {
+            // findyoutubeid(e.target.dataset.ytsearch)
+            console.log(e.target.dataset.ytsearch)
+          })
+        })(i)
         }
         }
     })
@@ -263,6 +281,20 @@ function runGenre (){
       }
     })
 };
+
+function findyoutubeid(looking){
+  var youtubeAPI = 'AIzaSyDEMdWu3lqGoSduYcL2p7LMJwCINR_eA0o'
+  var youtubeSearchUrl = 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=%27' + looking + 'trailer&videoEmbeddable=videoEmbeddableUnspecified&key='+ youtubeAPI;
+  fetch(youtubeSearchUrl)
+      .then(function(response){
+          return response.json();
+  }).then(function(data){
+      console.log(data);
+      trailerVID.setAttribute('src', '')
+      trailerVID.setAttribute('src', 'https://www.youtube.com/embed/%27' + data.items[0].id.videoId)
+      console.log(data.items[0].id.videoId)
+  })
+  }
 
 // https://api.themoviedb.org/3/movie/414906/similar?api_key=07f3bf91adb1325ab2741c977ecdf895&language=en-US&page=1
 /* <div class="card">
