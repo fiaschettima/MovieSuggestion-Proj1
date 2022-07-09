@@ -1,16 +1,4 @@
 
-// function findyoutubeid(){
-// var youtubeAPI = 'AIzaSyDEMdWu3lqGoSduYcL2p7LMJwCINR_eA0o'
-// var youtubeSearchUrl = 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q='+movieName+'&videoEmbeddable=videoEmbeddableUnspecified&key='+ youtubeAPI;
-// fetch(youtubeSearchUrl)
-//     .then(function(response){
-//         console.log(response)
-//         return response.json();
-// }).then(function(data){
-//     console.log(data);
-// })
-// }
-// findyoutubeid();
 
 
 var userInput = document.getElementById("search-topic");
@@ -167,33 +155,3 @@ function findSimilar(movieTitle){
 }
 
 
-
-// addEventListener('click', function(event){
-  
-//   if(event.target == 'button') {
-//     console.log(event.target.data-title)
-
-//   } else {
-//     return
-//   }
-  
-//   // console.log(data.results[this].title)
-//     // console.log(event.target.parentElement.parentElement.childNodes.);
-//     // event.target.parentElement.parentElement.childNodes[0].textContent.trim()
-// })
-
-
-// https://api.themoviedb.org/3/movie/414906/similar?api_key=07f3bf91adb1325ab2741c977ecdf895&language=en-US&page=1
-/* <div class="card">
-<div class="card-image waves-effect waves-block waves-light">
-  <img class="activator" src="images/office.jpg">
-</div>
-<div class="card-content">
-  <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-  <p><a href="#">This is a link</a></p>
-</div>
-<div class="card-reveal">
-  <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-  <p>Here is some more information about this product that is only revealed once clicked on.</p>
-</div>
-</div> */
