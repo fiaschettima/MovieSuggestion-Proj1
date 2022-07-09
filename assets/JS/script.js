@@ -35,7 +35,7 @@ function checkInput() {
         var closeRev = document.createElement('i');
         var OpenRev = document.createElement('i');
         var revPara = document.createElement('p');
-        testCard.classList.add('card','col','s12','m6', 'l4', 'xl3');
+        testCard.classList.add('card','col','s12','m4', 'l4', 'xl3');
         testCardImgCon.classList.add('card-image', 'waves-effect', 'waves-block', 'waves-light');
         testImage.classList.add('activator');
         testContentCont.classList.add('card-content');
