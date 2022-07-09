@@ -64,37 +64,16 @@ function checkInput() {
             return response.json();
     }).then(function(data){
         console.log(data);
-        
+
+        // Checks if there was anything returned -- if not, changes text to inform the user
+        if (data.results.length == 0) {
+          userInput.value = "No results found";
+          return;
+        } else {
         ///////////////////////////////////////////////////////////////
         var pageBody = document.getElementById('cardHere')
         pageBody.innerHTML = "";
         for(i=0; i < 6; i++){
-        // var newRow = document.createElement('div'); // make row
-        // var rightSide = document.createElement('div'); // make col
-        // var movieCard = document.createElement('div');// make card-----
-        // var movieImgC = document.createElement('div');// image and title------
-        // var movieContent = document.createElement('div');// card content---
-        // var movieImg = document.createElement('img')// add image
-        // var movieTitle = document.createElement('span')// floating title in img
-        // var movieText = document.createElement('p')// text for movie
-        // rightSide.classList.add('col','s12','m6', 'l4', 'hoverable');
-        // // newRow.classList.add('row')
-        // movieCard.classList.add('card')
-        // movieImgC.classList.add('card-image')
-        // movieImg.setAttribute('src', 'http://image.tmdb.org/t/p/w500/'+data.results[i].poster_path)+'.jpg'
-        // movieText.classList.add('card-content')
-        // movieTitle.classList.add('card-title')
-        // movieTitle.textContent = data.results[i].title
-        // movieText.textContent =  data.results[i].overview
-        // movieContent.appendChild(movieText)
-        // movieImgC.appendChild(movieImg)
-        // movieImgC.appendChild(movieTitle)
-        // movieCard.appendChild(movieImgC)
-        // movieCard.appendChild(movieContent)
-        // rightSide.appendChild(movieCard)
-      
-        // pageBody.appendChild(rightSide)
-
         var testCard = document.createElement('div')
         var testCardImgCon = document.createElement('div')
         var testImage = document.createElement('img')
@@ -136,7 +115,7 @@ function checkInput() {
         testCard.appendChild(testContentCont)
         testCard.appendChild(testDivreveal)
         pageBody.appendChild(testCard)
-
+        }
         }
     })
 
@@ -154,14 +133,8 @@ function checkInput() {
   // If there is no input in the form, ask the user to first put something
   if (!userInput.value) {
     console.log("Please put in a genre to search");
+    // var 
   }
-
-      // If there is input but it provides a bad url, ask the user to check spelling and note that the genres are limited
-    // else if (userInput.value in genreNumbers) {
-    //   console.log("fix ur search input!!");
-      // create modal that says
-      // "Input not valid, please check that genre name is spelled correctly -- please note that some genres are not supported"
-    // }
 
   // If the genre name provides an acceptable url, display movies in that genre
   else {
@@ -220,6 +193,7 @@ function checkInput() {
     } else if (userInput.value == 'western') {
       userInput.value = 37; 
     } else {
+      userInput.value = "Invalid entry, try again";
       console.log("Please check spelling");
     }
   }
@@ -281,8 +255,7 @@ function runGenre (){
         testCard.appendChild(testContentCont)
         testCard.appendChild(testDivreveal)
         pageBody.appendChild(testCard)
-
-        }
+      }
     })
 };
 
