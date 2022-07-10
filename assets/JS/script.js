@@ -207,6 +207,7 @@ else if (radioBtns[1].checked) {
       runGenre();
     } else if (userInput.value == 'western') {
       userInput.value = 37; 
+      runGenre();
     } else {
       userInput.value = "Invalid entry, try again";
       console.log("Please check spelling");
