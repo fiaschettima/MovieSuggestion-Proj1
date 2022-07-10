@@ -67,7 +67,10 @@ function checkInput() {
         ///////////////////////////////////////////////////////////////
         var pageBody = document.getElementById('cardHere')
         pageBody.innerHTML = "";
-        for(i=0; i < 6; i++){
+        for(i=0; i < data.results.length; i++){
+          if(data.results[i].poster_path === null){
+            console.log('No poster')
+          }else{
         var testCard = document.createElement('div')
         var testCardImgCon = document.createElement('div')
         var testImage = document.createElement('img')
@@ -130,7 +133,7 @@ function checkInput() {
               findSimilar(movTitle);})
          
         })(i)
-        }
+        }}
         }
     })
         
