@@ -4,7 +4,19 @@
 (https://fiaschettima.github.io/MovieSuggestion-Proj1)
 
 ## Description
+Purpose:
+- allows ppl to find movies they like based off of titles or genres they like
+- allows ppl to find similar movies to the ones they select from their search results
+- favoriting movies that appear so that user can look through them to remember which ones they found interesting
+  - also speeds up looking for movies for future use
+- so many movies exist, creates a simple and fast way for people to find new ones based off of what the user already knows they like
 
+Skills used:
+- new CSS framework (materialize)
+- input validation and local storage
+- modal
+- integrates multiple 3rd-party APIs
+- collaboration/ communication and branching/ merging (resolving conflicts, etc)
 
 ## Usage
 
