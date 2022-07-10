@@ -379,7 +379,7 @@ function findSimilar(movieTitle){
      
 
 
-
+var trailerVID = document.getElementById('trailerVID')
 function findyoutubeid(looking){
   var youtubeAPI = 'AIzaSyDEMdWu3lqGoSduYcL2p7LMJwCINR_eA0o'
   var youtubeSearchUrl = 'https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=%27' + looking + 'trailer&videoEmbeddable=videoEmbeddableUnspecified&key='+ youtubeAPI;
