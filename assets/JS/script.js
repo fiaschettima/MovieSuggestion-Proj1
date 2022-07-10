@@ -231,7 +231,12 @@ function runGenre (){
       ///////////////////////////////////////////////////////////////
       var pageBody = document.getElementById('cardHere')
       pageBody.innerHTML = "";
-      for(i=0; i < 6; i++){
+      for(i=0; i < data.results.length; i++){
+        if (data.results.length == 0) {
+          userInput.value = "No results found";
+          return;
+        }
+        else {
       var testCard = document.createElement('div')
       var testCardImgCon = document.createElement('div')
       var testImage = document.createElement('img')
@@ -294,7 +299,7 @@ function runGenre (){
             findSimilar(movTitle);})
        
       })(i)
-      }
+      }}
       })
   }
 
@@ -310,7 +315,12 @@ function findSimilar(movieTitle){
       console.log(data);
       var pageBody = document.getElementById('cardHere')
       pageBody.innerHTML = "";
-      for(i=0; i < 6; i++){
+      for(i=0; i < data.results.length; i++){
+        if (data.results.length == 0) {
+          userInput.value = "No results found";
+          return;
+        }
+        else {
       var testCard = document.createElement('div')
       var testCardImgCon = document.createElement('div')
       var testImage = document.createElement('img')
@@ -375,7 +385,7 @@ function findSimilar(movieTitle){
             findSimilar(movTitle);})
        
       })(i)
-      }
+      }}
       })
   }
 
