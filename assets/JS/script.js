@@ -101,20 +101,25 @@ function checkInput() {
         testSpanRevTitle.textContent = data.results[i].title
         revPara.textContent = data.results[i].overview
         var testAnch = document.createElement('a');
-        var testBtn = document.createElement('button');
+        var testBtn = document.createElement('a');
+        var likeBtn = document.createElement('a')
+        likeBtn.classList.add('btn', 'waves-effect','waves-light','favBtn', 'right','fa', 'fa-star')
+        likeBtn.setAttribute('data-id', data.results[i].id)
+        // likeBtn.appendChild(starI)
         testBtn.textContent = 'Find Similar Movies'
-        testBtn.classList.add('waves-effect', 'waves-light', 'btn', 'similar-btn')
+        testBtn.classList.add('waves-effect', 'waves-light', 'btn', 'similar-btn', 'sizeMe')
         testBtn.setAttribute('data-title', data.results[i].id)
         testAnch.setAttribute('href', '#modal1');
         testAnch.setAttribute('data-ytsearch', data.results[i].title);
-        testAnch.classList.add('waves-effect','btn', 'waves-light', 'modal-trigger', 'findtrailer');
+        testAnch.classList.add('waves-effect','btn', 'waves-light', 'modal-trigger', 'findtrailer', 'sizeMe');
         testAnch.textContent = 'Watch The Trailer';
         testCardImgCon.appendChild(testImage)
         testSpan.appendChild(OpenRev)
         testContentCont.appendChild(testSpan)
         testPar.appendChild(testAnch)
+        testPar.appendChild(likeBtn)
         testContentCont.appendChild(testPar)
-        testContentCont.appendChild(testBtn)
+        testPar.appendChild(testBtn)
         testSpanRevTitle.appendChild(closeRev)
         testDivreveal.appendChild(testSpanRevTitle)
         testDivreveal.appendChild(revPara)
@@ -131,6 +136,12 @@ function checkInput() {
               var movTitle = e.path[0].dataset.title;
               console.log(movTitle);
               findSimilar(movTitle);})
+            //
+            likeBtn.addEventListener('click', function(e){
+              e.target.classList.toggle('like');
+              checkLikes(e.target)
+              // console.log(e.target) 
+            })
          
         })(i)
         }}
@@ -264,11 +275,11 @@ function runGenre (){
       var testAnch = document.createElement('a');
       var testBtn = document.createElement('button');
       testBtn.textContent = 'Find Similar Movies'
-      testBtn.classList.add('waves-effect', 'waves-light', 'btn', 'similar-btn')
+      testBtn.classList.add('waves-effect', 'waves-light', 'btn', 'similar-btn', 'sizeMe')
       testBtn.setAttribute('data-title', data.results[i].id)
       testAnch.setAttribute('href', '#modal1');
       testAnch.setAttribute('data-ytsearch', data.results[i].title);
-      testAnch.classList.add('waves-effect','btn', 'waves-light', 'modal-trigger', 'findtrailer');
+      testAnch.classList.add('waves-effect','btn', 'waves-light', 'modal-trigger', 'findtrailer', 'sizeMe');
       testAnch.textContent = 'Watch The Trailer';
       testCardImgCon.appendChild(testImage)
       testSpan.appendChild(OpenRev)
@@ -343,11 +354,11 @@ function findSimilar(movieTitle){
       var testAnch = document.createElement('a');
       var testBtn = document.createElement('button');
       testBtn.textContent = 'Find Similar Movies'
-      testBtn.classList.add('waves-effect', 'waves-light', 'btn', 'similar-btn')
+      testBtn.classList.add('waves-effect', 'waves-light', 'btn', 'similar-btn', 'sizeMe')
       testBtn.setAttribute('data-title', data.results[i].id)
       testAnch.setAttribute('href', '#modal1');
       testAnch.setAttribute('data-ytsearch', data.results[i].title);
-      testAnch.classList.add('waves-effect','btn', 'waves-light', 'modal-trigger', 'findtrailer');
+      testAnch.classList.add('waves-effect','btn', 'waves-light', 'modal-trigger', 'findtrailer', 'sizeMe');
       testAnch.textContent = 'Watch The Trailer';
       testCardImgCon.appendChild(testImage)
       testSpan.appendChild(OpenRev)
@@ -399,17 +410,13 @@ function findyoutubeid(looking){
   })
   }
 
-// https://api.themoviedb.org/3/movie/414906/similar?api_key=07f3bf91adb1325ab2741c977ecdf895&language=en-US&page=1
-/* <div class="card">
-<div class="card-image waves-effect waves-block waves-light">
-  <img class="activator" src="images/office.jpg">
-</div>
-<div class="card-content">
-  <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-  <p><a href="#">This is a link</a></p>
-</div>
-<div class="card-reveal">
-  <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-  <p>Here is some more information about this product that is only revealed once clicked on.</p>
-</div>
-</div> */
+function checkLikes(e){
+  console.log(e.dataset.id)
+    console.log(e)
+    if(e.classList.contains('like')){
+      localStorage.setItem(e.dataset.id, '')
+    }else{
+     localStorage.removeItem(e.dataset.id, '')
+    }
+
+}
