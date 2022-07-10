@@ -1,5 +1,26 @@
 # MovieSuggestion-Proj1
 
+## Deployment Link
+(https://fiaschettima.github.io/MovieSuggestion-Proj1)
+
+## Description
+
+
+## Usage
+
+
+## Credits
+
+
+## License
+MIT License
+
+## Authors
+Matt Fiaschetti: (https://github.com/fiaschettima)
+Jeffrey Zhu: (https://github.com/jeffz98)
+Damien Armstrong: (https://github.com/pirosvs)
+
+
 Must use a CSS framework other than Bootstrap
 Must be Deployed (GitHub Pages)
 Must be interactive (i.e: accept and respond to user input) 
