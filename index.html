@@ -19,13 +19,13 @@
     <div class="row" id="searchContainer">
       <div class="input-field col s12 my-colors">
         
-        <input placeholder="search movie" id="search-topic" type="text" class="validate">
+        <input placeholder="search movie" id="search-topic" type="text" class="validate" required>
         <label for="search-topic"></label>
         <!-- Create radio buttons to select by title or genre -->
         <form action="#">
           <p>
             <label>
-              <input name="group1" id="title-name" type="radio" />
+              <input name="group1" id="title-name" type="radio" checked="checked"/>
               <span for="title-name" class="my-colors">Title</span>
             </label>
           </p>
@@ -35,7 +35,7 @@
               <span for="genre-name" class="my-colors">Genre</span>
             </label>
           </p>
-          <a id="submit-btn" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+          <a id="submit-btn" class="btn-floating btn-large waves-effect waves-dark blue">Go<i class="material-icons">send</i></a>
         </form>
       </div>
     </div>
@@ -43,6 +43,30 @@
         <div id="cardHere" class="cardHere">
       </div>
     </div>
+      <!-- Modal Trigger -->
+  <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+
+  <!-- Modal Structure -->
+  <!-- <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Modal Header</h4>
+      <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div> -->
+
+  <!-- Our modal -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/Go8nTmfrQd8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <!-- <iframe id="trailerVID" width="560" height="315" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
     
   <!-- </div> -->
     <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/ue80QwXMRHg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
