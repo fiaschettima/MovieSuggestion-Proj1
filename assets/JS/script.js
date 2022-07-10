@@ -83,6 +83,9 @@ function checkInput() {
         var closeRev = document.createElement('i')
         var OpenRev = document.createElement('i')
         var revPara = document.createElement('p')
+        var favoriteIcon = document.createElement('i')
+        favoriteIcon.textContent = '☆';
+        favoriteIcon.classList.add('right', 'notLiked')
         testCard.classList.add('card','col', 's12','m6', 'l4', 'xl3')
         testCardImgCon.classList.add('card-image', 'waves-effect', 'waves-block', 'waves-light')
         testImage.classList.add('activator')
@@ -113,6 +116,7 @@ function checkInput() {
         testSpan.appendChild(OpenRev)
         testContentCont.appendChild(testSpan)
         testPar.appendChild(testAnch)
+        testPar.appendChild(favoriteIcon)
         testContentCont.appendChild(testPar)
         testContentCont.appendChild(testBtn)
         testSpanRevTitle.appendChild(closeRev)
