@@ -1,7 +1,7 @@
 # MovieSuggestion-Proj1
 
 ## Deployment Link
-(https://fiaschettima.github.io/MovieSuggestion-Proj1)
+<a href="https://fiaschettima.github.io/MovieSuggestion-Proj1">Click here to test this project</a>
 
 ## Description
 Purpose:
@@ -12,25 +12,27 @@ Purpose:
 - so many movies exist, creates a simple and fast way for people to find new ones based off of what the user already knows they like
 
 Skills used:
-- new CSS framework (materialize)
+- new CSS framework (Materialize)
 - input validation and local storage
 - modal
 - integrates multiple 3rd-party APIs
+- web API and generating HTML through JavaScript
 - collaboration/ communication and branching/ merging (resolving conflicts, etc)
+- HTML, CSS, JavaScript
 
 ## Usage
 
 
 ## Credits
-
+Credit goes to project contributors Matt Fiaschetti, Jeffery Zhu, and Damien Armstrong. Credit as well our CSS framework Materialize (link), and the two APIs used, The Movie Database API and Youtube API.
 
 ## License
 MIT License
 
 ## Authors
-Matt Fiaschetti: (https://github.com/fiaschettima)
-Jeffrey Zhu: (https://github.com/jeffz98)
-Damien Armstrong: (https://github.com/pirosvs)
+Matt Fiaschetti: <a href="https://github.com/fiaschettima">Github Portfolio</a>
+Jeffrey Zhang: <a href="https://github.com/jeffz98">Github Portfolio</a>
+Damien Armstrong: <a href="https://github.com/pirosvs">Github Portfolio</a>
 
 
 Must use a CSS framework other than Bootstrap
