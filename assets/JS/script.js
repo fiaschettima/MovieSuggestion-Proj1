@@ -29,6 +29,18 @@ var genreNumbers = [
   western: 37}
 ];
 var modalsidk = document.getElementById(modal1);
+
+
+userInput.addEventListener('keyup', function(e){
+  if(e.code === 'Enter' && userInput.value !== ''){
+      e.preventDefault;
+      var userInfo = userInput.value;
+      checkInput();
+      userInput.value = "";
+  }else{
+      return;
+  }
+})
 // Event Listenrs
 document.addEventListener('DOMContentLoaded', function() {
   var elems = document.querySelectorAll('.modal');
