@@ -1,13 +1,46 @@
+:root{
+    --cultured: #f8f9faff;
+    --cultured-2: #e9ecefff;
+    --gainsboro: #dee2e6ff;
+    --light-gray: #ced4daff;
+    --cadet-blue-crayola: #adb5bdff;
+    --sonic-silver: #6c757dff;
+    --davys-grey: #495057ff;
+    --onyx: #343a40ff;
+    --eerie-black: #212529ff;
+    }
+/* https://coolors.co/f8f9fa-e9ecef-dee2e6-ced4da-adb5bd-6c757d-495057-343a40-212529    <--- (credit this in README) */
 /* Helps to format input field in the center of the page -- looks like this isn't being used/ commented out in the html? 
     As of 7/8 11:30AM PST */
 html, body, .my-wrapper {
     height: 100%;
 }
-
+body{
+    background-color: var(--davys-grey);
+}
+.card{
+    background-color: var(--cultured);
+    color: var(--eerie-black);
+}
+form{
+    margin-bottom: 1em;
+    padding-left: 1em;
+}
+.unlike{
+    color: var(--cultured);
+}
+.like{
+    color: gold;
+}
+.sizeMe{
+    max-width: 169px;
+    /* text-align: center; */
+}
 /* Changes colors for input field to make it more legible and appealing */
 .my-colors {
     color: #000000;
-    background-color: #ECFBFF;
+    background-color: var(--cultured);
+    
 }
 
 /* Looks like this id isn't being used so far? As of 7/8 11:30AM PST */
