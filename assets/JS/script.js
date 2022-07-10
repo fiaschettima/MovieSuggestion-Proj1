@@ -84,8 +84,8 @@ function checkInput() {
         var OpenRev = document.createElement('i')
         var revPara = document.createElement('p')
         var favoriteIcon = document.createElement('i')
-        favoriteIcon.textContent = '☆';
-        favoriteIcon.classList.add('right', 'notLiked')
+          
+        favoriteIcon.classList.add('right', 'fa', 'fa-thumbs-up')
         testCard.classList.add('card','col', 's12','m6', 'l4', 'xl3')
         testCardImgCon.classList.add('card-image', 'waves-effect', 'waves-block', 'waves-light')
         testImage.classList.add('activator')

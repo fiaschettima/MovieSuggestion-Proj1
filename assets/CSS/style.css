@@ -14,6 +14,14 @@ html, body, .my-wrapper {
 #searchedCards {
     border: 1px solid black;
 }
+
+.notLiked {
+    text-shadow: 
+    -1.5px -1.5px 15px yellow,
+    /* 0 0 40px yellow,
+    0 0 100px yellow,
+    0 0 150px yellow; */
+}
 /* Commented out because the height is uniform when sized with the card and column classes, and was causing the issue 
     with images taking over the card */
 /* .cardHere .card{ */
