@@ -41,7 +41,15 @@ submitBtn.addEventListener('click', function (){
     userInput.value = "Please add a movie title or genre name";
   } else {checkInput();}
 });
-
+userInput.addEventListener('keyup', function(e){
+  if(e.code === 'Enter' && userInput.value !== ''){
+      e.preventDefault;
+      checkInput();
+      userInput.value = "";
+  }else{
+      return;
+  }
+})
 
 function checkInput() {
     var tmdbURL = 'https://api.themoviedb.org/3/search/movie?api_key='+tmdbAPI+'&query=' + userInput.value;
