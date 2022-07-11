@@ -5,18 +5,20 @@
 
 ## Description
 Purpose:
-- allows ppl to find movies they like based off of titles or genres they like
-- allows ppl to find similar movies to the ones they select from their search results
-- favoriting movies that appear so that user can look through them to remember which ones they found interesting
-  - also speeds up looking for movies for future use
-- so many movies exist, creates a simple and fast way for people to find new ones based off of what the user already knows they like
+Our app allows users to quickly and easily find new movies based off of title or genre. Users can also find similar movies to ones that pop up in their search to find movies they might enjoy based off of a previous movie they liked. Each movie option also has the ability to watch it's trailer so that they can easily screen results to find a movie they're interested in. Our app's UI is simple in order to maximize efficiency, with no unnecessary features making the app more difficult to learn at first glance. Users can also save movies to their favorites using local storage, so that they can easily come back to movies they were curious about from previous searches.
 
+ Movie Suggester frees up some of the time spent searching for what to watch. With the plethora of movies that exist, our app takes the stress out of combing endlessly through lists, allowing users to find what to watch without needing to learn about how the site works or parsing through possible information about a movie like other sites offer.
+
+The technologies used in the making of this project include HTML, CSS, JavaScript, server side API, our CSS framework Materialize, and our 3rd party APIs from The Movie Database and Youtube, as well as Github and Git. Skills used include
+ 
 Skills used:
 - new CSS framework (Materialize)
-- input validation and local storage
-- modal
+- using input validation to avoid errors and facilitate use for users
+- local storage to add movies to an empty array using the dataset's keys to store favorites and populate the favorites page with specifically those movies 
+- modal window that users can easily click out of to render trailers only when users deliberately click to do so
+- clearing inner HTML at the beginning of our search function to reset movie cards generated so they don't endlessly stack
 - integrates multiple 3rd-party APIs
-- web API and generating HTML through JavaScript
+- using web api to dynamically generate search results
 - collaboration/ communication and branching/ merging (resolving conflicts, etc)
 - HTML, CSS, JavaScript
 
@@ -24,7 +26,7 @@ Skills used:
 
 
 ## Credits
-Credit goes to project contributors Matt Fiaschetti, Jeffery Zhu, and Damien Armstrong. Credit as well our CSS framework Materialize (link), and the two APIs used, The Movie Database API and Youtube API.
+Credit goes to project contributors Matt Fiaschetti, Jeffery Zhu, and Damien Armstrong. Credit as well our CSS framework <a href="https://materializecss.com/">Materialize</a>, and the two APIs used, The Movie Database API and Youtube API.
 
 ## License
 MIT License
