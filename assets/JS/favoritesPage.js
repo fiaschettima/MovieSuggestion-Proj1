@@ -19,4 +19,5 @@ function printFavorites (titleId) {
     var tmdbURL = 'https://api.themoviedb.org/3/search/movie?api_key=07f3bf91adb1325ab2741c977ecdf895&query=' + titleId+ '&api_key=' + tmdbAPI;
 
 }
- 
+
+test();
