@@ -1,4 +1,5 @@
 var movieIds = [];
+var trailerVID = document.getElementById('trailerVID')
 
 function forEachKey() {
     for (var i = 0; i < localStorage.length; i++) {
