@@ -30,11 +30,10 @@ var genreNumbers = [
 ];
 var modalsidk = document.getElementById(modal1);
 
-
+// Event listener to handle enter key for movie search
 userInput.addEventListener('keyup', function(e){
   if(e.code === 'Enter' && userInput.value !== ''){
       e.preventDefault;
-      var userInfo = userInput.value;
       checkInput();
       userInput.value = "";
   }else{
