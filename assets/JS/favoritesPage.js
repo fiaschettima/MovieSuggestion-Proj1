@@ -8,10 +8,10 @@ function forEachKey() {
         //console.log(localStorage.getItem(localStorage.key(i)));
         
     }
-    // console.log(movieIds);
+    movieIds.forEach(printFavorites);
 }
 forEachKey();
-movieIds.forEach(printFavorites);
+
 
 function printFavorites (titleId) {
     console.log(titleId);
