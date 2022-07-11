@@ -113,6 +113,7 @@ function checkInput() {
         var likeBtn = document.createElement('a')
         likeBtn.classList.add('btn', 'waves-effect','waves-light','favBtn', 'right','fa', 'fa-star')
         likeBtn.setAttribute('data-id', data.results[i].id)
+        likeBtn.setAttribute('data-name', data.results[i].title)
         // likeBtn.appendChild(starI)
         testBtn.textContent = 'Find Similar Movies'
         testBtn.classList.add('waves-effect', 'waves-light', 'btn', 'similar-btn', 'sizeMe')
@@ -427,14 +428,16 @@ function findyoutubeid(looking){
       console.log(data.items[0].id.videoId)
   })
   }
+  var idStorage = [];
 
 function checkLikes(e){
   console.log(e.dataset.id)
     console.log(e)
+    idStorage.push(e.dataset.id);
     if(e.classList.contains('like')){
-      localStorage.setItem(e.dataset.id, '')
+      localStorage.setItem(e.dataset.name, e.dataset.id)
     }else{
-     localStorage.removeItem(e.dataset.id, '')
+     localStorage.removeItem(e.dataset.name, e.dataset.id)
     }
 
 }
