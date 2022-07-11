@@ -112,8 +112,8 @@ function printCards(data){
   testContentCont.appendChild(testSpan)
   testPar.appendChild(testAnch)
   testPar.appendChild(likeBtn)
-  testContentCont.appendChild(testPar)
   testPar.appendChild(testBtn)
+  testContentCont.appendChild(testPar)
   testSpanRevTitle.appendChild(closeRev)
   testDivreveal.appendChild(testSpanRevTitle)
   testDivreveal.appendChild(revPara)
@@ -304,13 +304,15 @@ function findyoutubeid(looking){
       console.log(data.items[0].id.videoId)
   })
   }
-  var idStorage = [];
+  // var idStorage = [];
 
 function checkLikes(e){
+  var idStorage = [];
   console.log(e.dataset.id)
     console.log(e)
     idStorage.push(e.dataset.id);
     if(e.classList.contains('like')){
+      idStorage.push(e.dataset.id);
       localStorage.setItem(e.dataset.name, e.dataset.id)
     }else{
      localStorage.removeItem(e.dataset.name, e.dataset.id)
