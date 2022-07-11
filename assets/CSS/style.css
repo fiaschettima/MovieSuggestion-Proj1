@@ -26,9 +26,7 @@ form{
     margin-bottom: 1em;
     padding-left: 1em;
 }
-.unlike{
-    color: var(--cultured);
-}
+
 .like{
     color: gold;
 }
@@ -42,7 +40,9 @@ form{
     background-color: var(--cultured);
     
 }
-
+.card-here{
+    margin: 1em;
+}
 /* Looks like this id isn't being used so far? As of 7/8 11:30AM PST */
 #searchedCards {
     border: 1px solid black;

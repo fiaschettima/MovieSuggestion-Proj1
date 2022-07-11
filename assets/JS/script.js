@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 submitBtn.addEventListener('click', function (){
   if (!userInput.value) {
-    userInput.value = "Please add a movie title or genre name";
+    userInput.placeholder = "Please add a movie title or Genre";
   } else {checkInput();}
 });
 userInput.addEventListener('keyup', function(e){
@@ -63,6 +63,7 @@ function printCards(data){
     if(data.results[i].poster_path === null){
       console.log('No poster')
     }else{
+      // if movie id is a key in local storage set like btn class to like
   var testCard = document.createElement('div')
   var testCardImgCon = document.createElement('div')
   var testImage = document.createElement('img')
@@ -179,68 +180,87 @@ else if (radioBtns[1].checked) {
   else {
 
     if (userInput.value == 'action') {
-      userInput.value = 28;
+      searchValue = 28;
       runGenre();
+      return
     } else if (userInput.value == 'adventure') {
-      userInput.value = 12; 
+      searchValue = 12; 
       runGenre();
+      return
     } else if (userInput.value == 'animation') {
-      userInput.value = 16;
+      searchValue = 16;
       runGenre(); 
+      return
     } else if (userInput.value == 'comedy') {
-      userInput.value = 35; 
+      searchValue = 35; 
       runGenre();
+      return
     } else if (userInput.value == 'crime') {
-      userInput.value = 80; 
+      searchValue = 80; 
       runGenre();
+      return
     } else if (userInput.value == 'documentary') {
-      userInput.value = 99;
+      searchValue = 99;
       runGenre();
+      return
     } else if (userInput.value == 'drama') {
-      userInput.value = 18; 
+      searchValue = 18; 
       runGenre();
+      return
     } else if (userInput.value == 'family') {
-      userInput.value = 10751; 
+      searchValue = 10751; 
       runGenre();
+      return
     } else if (userInput.value == 'fantasy') {
-      userInput.value = 14; 
+      searchValue = 14; 
       runGenre();
+      return
     } else if (userInput.value == 'history') {
-      userInput.value = 36; 
+      searchValue = 36; 
       runGenre();
+      return
     } else if (userInput.value == 'horror') {
-      userInput.value = 27; 
+      searchValue = 27; 
       runGenre();
+      return
     } else if (userInput.value == 'music') {
       userInput.value = 10402; 
       runGenre();
+      return
     } else if (userInput.value == 'mystery') {
-      userInput.value = 9648; 
+      searchValue = 9648; 
       runGenre();
+      return
     } else if (userInput.value == 'romance') {
       userInput.value = 10749; 
       runGenre();
+      return
     } else if (userInput.value == 'scifi') {
-      userInput.value = 878; 
+      searchValue = 878; 
       runGenre();
+      return
     } else if (userInput.value == 'thriller') {
-      userInput.value = 53; 
+      searchValue = 53; 
       runGenre();
+      return
     } else if (userInput.value == 'war') {
-      userInput.value = 10752; 
+      searchValue = 10752; 
       runGenre();
+      return
     } else if (userInput.value == 'western') {
-      userInput.value = 37; 
+      searchValue = 37; 
       runGenre();
+      return
     } else {
-      userInput.value = "Invalid entry, try again";
+      userInput.value = '';
+      userInput.placeholder = "Invalid entry, try again";
       console.log("Please check spelling");
     }
   }
 }}
 
 function runGenre (){
-  var tmdbGenreURL = 'https://api.themoviedb.org/3/discover/movie?api_key=' + tmdbAPI + '&with_genres=' + userInput.value;
+  var tmdbGenreURL = 'https://api.themoviedb.org/3/discover/movie?api_key=' + tmdbAPI + '&with_genres=' + searchValue;
 
   fetch(tmdbGenreURL)
       .then(function(response){
