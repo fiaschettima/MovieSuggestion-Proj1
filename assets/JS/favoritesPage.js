@@ -58,13 +58,13 @@ function printFavorites (titleId) {
             OpenRev.textContent = 'more_vert'
             testImage.setAttribute('src', 'http://image.tmdb.org/t/p/w342/'+data.poster_path)+'.jpg'
             testSpan.textContent = data.title
-            // testAnch.setAttribute('href', 'https://materializecss.com/cards.html')
-            // testAnch.textContent = 'Test Link'
             testSpanRevTitle.textContent = data.title
             revPara.textContent = data.overview
             var testAnch = document.createElement('a');
-            // likeBtn.appendChild(starI)
-
+            var likeBtn = document.createElement('a')
+            likeBtn.classList.add('btn', 'waves-effect','waves-light','favBtn', 'right','fa', 'fa-star','like')
+            likeBtn.setAttribute('data-id', data.id)
+            likeBtn.setAttribute('data-name', data.title)
             testAnch.setAttribute('href', '#modal1');
             testAnch.setAttribute('data-ytsearch', data.title);
             testAnch.classList.add('waves-effect','btn', 'waves-light', 'modal-trigger', 'findtrailer', 'sizeMe');
@@ -73,9 +73,8 @@ function printFavorites (titleId) {
             testSpan.appendChild(OpenRev)
             testContentCont.appendChild(testSpan)
             testPar.appendChild(testAnch)
-            
+            testPar.appendChild(likeBtn)
             testContentCont.appendChild(testPar)
-            
             testSpanRevTitle.appendChild(closeRev)
             testDivreveal.appendChild(testSpanRevTitle)
             testDivreveal.appendChild(revPara)
@@ -88,7 +87,10 @@ function printFavorites (titleId) {
                 findyoutubeid(e.target.dataset.ytsearch)
                 console.log(e.target.dataset.ytsearch) })
                 // 
-                
+                likeBtn.addEventListener('click', function(e){
+                    e.target.classList.toggle('like');
+                    checkLikes(e.target)
+                })
                 //
                 
                     // console.log(e.target) 
