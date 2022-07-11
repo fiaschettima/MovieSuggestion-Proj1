@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 submitBtn.addEventListener('click', function (){
   if (!userInput.value) {
-    userInput.value = "Please add a movie title or genre name";
+    userInput.placeholder = "Please add a movie title or Genre";
   } else {checkInput();}
 });
 userInput.addEventListener('keyup', function(e){
@@ -63,6 +63,7 @@ function printCards(data){
     if(data.results[i].poster_path === null){
       console.log('No poster')
     }else{
+      // if movie id is a key in local storage set like btn class to like
   var testCard = document.createElement('div')
   var testCardImgCon = document.createElement('div')
   var testImage = document.createElement('img')
@@ -179,68 +180,87 @@ else if (radioBtns[1].checked) {
   else {
 
     if (userInput.value == 'action') {
-      userInput.value = 28;
+      searchValue = 28;
       runGenre();
+      return
     } else if (userInput.value == 'adventure') {
-      userInput.value = 12; 
+      searchValue = 12; 
       runGenre();
+      return
     } else if (userInput.value == 'animation') {
-      userInput.value = 16;
+      searchValue = 16;
       runGenre(); 
+      return
     } else if (userInput.value == 'comedy') {
-      userInput.value = 35; 
+      searchValue = 35; 
       runGenre();
+      return
     } else if (userInput.value == 'crime') {
-      userInput.value = 80; 
+      searchValue = 80; 
       runGenre();
+      return
     } else if (userInput.value == 'documentary') {
-      userInput.value = 99;
+      searchValue = 99;
       runGenre();
+      return
     } else if (userInput.value == 'drama') {
-      userInput.value = 18; 
+      searchValue = 18; 
       runGenre();
+      return
     } else if (userInput.value == 'family') {
-      userInput.value = 10751; 
+      searchValue = 10751; 
       runGenre();
+      return
     } else if (userInput.value == 'fantasy') {
-      userInput.value = 14; 
+      searchValue = 14; 
       runGenre();
+      return
     } else if (userInput.value == 'history') {
-      userInput.value = 36; 
+      searchValue = 36; 
       runGenre();
+      return
     } else if (userInput.value == 'horror') {
-      userInput.value = 27; 
+      searchValue = 27; 
       runGenre();
+      return
     } else if (userInput.value == 'music') {
       userInput.value = 10402; 
       runGenre();
+      return
     } else if (userInput.value == 'mystery') {
-      userInput.value = 9648; 
+      searchValue = 9648; 
       runGenre();
+      return
     } else if (userInput.value == 'romance') {
       userInput.value = 10749; 
       runGenre();
+      return
     } else if (userInput.value == 'scifi') {
-      userInput.value = 878; 
+      searchValue = 878; 
       runGenre();
+      return
     } else if (userInput.value == 'thriller') {
-      userInput.value = 53; 
+      searchValue = 53; 
       runGenre();
+      return
     } else if (userInput.value == 'war') {
-      userInput.value = 10752; 
+      searchValue = 10752; 
       runGenre();
+      return
     } else if (userInput.value == 'western') {
-      userInput.value = 37; 
+      searchValue = 37; 
       runGenre();
+      return
     } else {
-      userInput.value = "Invalid entry, try again";
+      userInput.value = '';
+      userInput.placeholder = "Invalid entry, try again";
       console.log("Please check spelling");
     }
   }
 }}
 
 function runGenre (){
-  var tmdbGenreURL = 'https://api.themoviedb.org/3/discover/movie?api_key=' + tmdbAPI + '&with_genres=' + userInput.value;
+  var tmdbGenreURL = 'https://api.themoviedb.org/3/discover/movie?api_key=' + tmdbAPI + '&with_genres=' + searchValue;
 
   fetch(tmdbGenreURL)
       .then(function(response){
@@ -248,78 +268,7 @@ function runGenre (){
           return response.json();
   }).then(function(data){
       console.log(data);
-<<<<<<< HEAD
-      
-      ///////////////////////////////////////////////////////////////
-      var pageBody = document.getElementById('cardHere')
-      pageBody.innerHTML = "";
-      for(i=0; i < 6; i++){
-      var testCard = document.createElement('div')
-      var testCardImgCon = document.createElement('div')
-      var testImage = document.createElement('img')
-      var testContentCont = document.createElement('div')
-      var testSpan = document.createElement('span')
-      var testPar = document.createElement('p')
-      // var testAnch = document.createElement('a')
-      var testDivreveal = document.createElement('div')
-      var testSpanRevTitle = document.createElement('span')
-      var closeRev = document.createElement('i')
-      var OpenRev = document.createElement('i')
-      var revPara = document.createElement('p')
-      testCard.classList.add('card','col', 's12','m6', 'l4', 'xl3')
-      testCardImgCon.classList.add('card-image', 'waves-effect', 'waves-block', 'waves-light')
-      testImage.classList.add('activator')
-      testContentCont.classList.add('card-content')
-      testSpan.classList.add('card-title', 'activator','grey-text', 'text-darken-4')
-      testDivreveal.classList.add('card-reveal')
-      testSpanRevTitle.classList.add('card-title','grey-text', 'text-darken-4')
-      closeRev.classList.add('material-icons', 'right')
-      closeRev.textContent = 'close'
-      OpenRev.classList.add('material-icons', 'right')
-      OpenRev.textContent = 'more_vert'
-      testImage.setAttribute('src', 'http://image.tmdb.org/t/p/w342/'+data.results[i].poster_path)+'.jpg'
-      testSpan.textContent = data.results[i].title
-      // testAnch.setAttribute('href', 'https://materializecss.com/cards.html')
-      // testAnch.textContent = 'Test Link'
-      testSpanRevTitle.textContent = data.results[i].title
-      revPara.textContent = data.results[i].overview
-      var testAnch = document.createElement('a');
-      var testBtn = document.createElement('button');
-      testBtn.textContent = 'Find Similar Movies'
-      testBtn.classList.add('waves-effect', 'waves-light', 'btn', 'similar-btn', 'sizeMe')
-      testBtn.setAttribute('data-title', data.results[i].id)
-      testAnch.setAttribute('href', '#modal1');
-      testAnch.setAttribute('data-ytsearch', data.results[i].title);
-      testAnch.classList.add('waves-effect','btn', 'waves-light', 'modal-trigger', 'findtrailer', 'sizeMe');
-      testAnch.textContent = 'Watch The Trailer';
-      testCardImgCon.appendChild(testImage)
-      testSpan.appendChild(OpenRev)
-      testContentCont.appendChild(testSpan)
-      testPar.appendChild(testAnch)
-      testContentCont.appendChild(testPar)
-      testContentCont.appendChild(testBtn)
-      testSpanRevTitle.appendChild(closeRev)
-      testDivreveal.appendChild(testSpanRevTitle)
-      testDivreveal.appendChild(revPara)
-      testCard.appendChild(testCardImgCon)
-      testCard.appendChild(testContentCont)
-      testCard.appendChild(testDivreveal)
-      pageBody.appendChild(testCard);
-      (function() {
-        testAnch.addEventListener('click', function(e){
-          findyoutubeid(e.target.dataset.ytsearch)
-          console.log(e.target.dataset.ytsearch) })
-          // 
-          testBtn.addEventListener('click', function(e) {
-            var movTitle = e.path[0].dataset.title;
-            console.log(movTitle);
-            findSimilar(movTitle);})
-       
-      })(i)
-      }
-=======
       printCards(data);
->>>>>>> 8bf71f715010edd8041134cd368606d48ca30db9
       })
   }
 
@@ -333,81 +282,8 @@ function findSimilar(movieTitle){
             return response.json();
     }).then(function(data) {
       console.log(data);
-<<<<<<< HEAD
-      var pageBody = document.getElementById('cardHere')
-      pageBody.innerHTML = "";
-      for(i=0; i < 6; i++){
-      var testCard = document.createElement('div')
-      var testCardImgCon = document.createElement('div')
-      var testImage = document.createElement('img')
-      var testContentCont = document.createElement('div')
-      var testSpan = document.createElement('span')
-      var testPar = document.createElement('p')
-      // var testAnch = document.createElement('a')
-      var testDivreveal = document.createElement('div')
-      var testSpanRevTitle = document.createElement('span')
-      var closeRev = document.createElement('i')
-      var OpenRev = document.createElement('i')
-      var revPara = document.createElement('p')
-      testCard.classList.add('card','col', 's12','m6', 'l4', 'xl3')
-      testCardImgCon.classList.add('card-image', 'waves-effect', 'waves-block', 'waves-light')
-      testImage.classList.add('activator')
-      testContentCont.classList.add('card-content')
-      testSpan.classList.add('card-title', 'activator','grey-text', 'text-darken-4')
-      testDivreveal.classList.add('card-reveal')
-      testSpanRevTitle.classList.add('card-title','grey-text', 'text-darken-4')
-      closeRev.classList.add('material-icons', 'right')
-      closeRev.textContent = 'close'
-      OpenRev.classList.add('material-icons', 'right')
-      OpenRev.textContent = 'more_vert'
-      testImage.setAttribute('src', 'http://image.tmdb.org/t/p/w342/'+data.results[i].poster_path)+'.jpg'
-      testSpan.textContent = data.results[i].title
-      // testAnch.setAttribute('href', 'https://materializecss.com/cards.html')
-      // testAnch.textContent = 'Test Link'
-      testSpanRevTitle.textContent = data.results[i].title
-      revPara.textContent = data.results[i].overview
-      var testAnch = document.createElement('a');
-      var testBtn = document.createElement('button');
-      testBtn.textContent = 'Find Similar Movies'
-      testBtn.classList.add('waves-effect', 'waves-light', 'btn', 'similar-btn', 'sizeMe')
-      testBtn.setAttribute('data-title', data.results[i].id)
-      testAnch.setAttribute('href', '#modal1');
-      testAnch.setAttribute('data-ytsearch', data.results[i].title);
-      testAnch.classList.add('waves-effect','btn', 'waves-light', 'modal-trigger', 'findtrailer', 'sizeMe');
-      testAnch.textContent = 'Watch The Trailer';
-      testCardImgCon.appendChild(testImage)
-      testSpan.appendChild(OpenRev)
-      testContentCont.appendChild(testSpan)
-      testPar.appendChild(testAnch)
-      testContentCont.appendChild(testPar)
-      testContentCont.appendChild(testBtn)
-      testSpanRevTitle.appendChild(closeRev)
-      testDivreveal.appendChild(testSpanRevTitle)
-      testDivreveal.appendChild(revPara)
-      testCard.appendChild(testCardImgCon)
-      testCard.appendChild(testContentCont)
-      testCard.appendChild(testDivreveal)
-      pageBody.appendChild(testCard);
-      (function() {
-        testAnch.addEventListener('click', function(e){
-          findyoutubeid(e.target.dataset.ytsearch)
-          console.log('e.target.dataset.ytsearch' )
-          console.log(e) 
-        })
-          // 
-          testBtn.addEventListener('click', function(e) {
-            var movTitle = e.path[0].dataset.title;
-            console.log(movTitle);
-            findSimilar(movTitle);})
-       
-      })(i)
-      }
-      })
-  }
-=======
       printCards(data);
   })}
->>>>>>> 8bf71f715010edd8041134cd368606d48ca30db9
 
      
 
