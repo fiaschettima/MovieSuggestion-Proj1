@@ -304,7 +304,7 @@ function findyoutubeid(looking){
       console.log(data.items[0].id.videoId)
   })
   }
-  // var idStorage = [];
+ 
 
 function checkLikes(e){
   var idStorage = [];
