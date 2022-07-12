@@ -35,7 +35,8 @@ User Story: As a user I want to search for a movie and see a brief description a
 ![gif of page functioning](./assets/Images/userStoryone.gif)<br>
 User Story: As a user if I like the movie I want to be able to save it to come back to later, to compile a list of movies im interested in watching.<br>
 ![gif of page functioning](./assets/Images/likeMovieDemo.gif)<br>
-
+User Story: As a user I want to be able to save movies so that I can view them later<br>
+![gif of page functioning](./assets/Images/favPageDemo.gif)<br>
 ## Code Snippets
 
 ![Youtube API](./assets/Images/codeSnipYTAPI.png)<br>

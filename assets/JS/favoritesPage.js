@@ -1,45 +1,37 @@
+// array to hold the movies information
 var movieIds = [];
 var trailerVID = document.getElementById('trailerVID')
-
+// for each key in local storage push to moive array
 function forEachKey() {
     for (var i = 0; i < localStorage.length; i++) {
         movieIds.push(localStorage.getItem(localStorage.key(i)));
-        //console.log(localStorage.getItem(localStorage.key(i)));
         
     }
     // 
 }
 forEachKey();
-// console.log(movieIds);
+
+// Prints favorites cards similar to main print card function main difference is fetch url being used
+// as well as results being one movie searched individually
 printFavorites(movieIds)
 function printFavorites (titleId) {
     var pageBody = document.getElementById('cardHere')
     pageBody.innerHTML = "";
     console.log(titleId);
-    // console.log(tmdbAPI);
     for (var i = 0; i < titleId.length; i++) {
-    // var tmdbAPI = '07f3bf91adb1325ab2741c977ecdf895';
         var tmdbURL = 'https://api.themoviedb.org/3/movie/' + titleId[i] + '?api_key=' + tmdbAPI + '&language=en-US';
-        // var tmdbGenreURL = 'https://api.themoviedb.org/3/discover/movie?api_key=' + tmdbAPI + '&with_genres=' + 'action';
         fetch(tmdbURL)
             .then(function(response){
-                // console.log(response)
                 return response.json();
         }).then(function(data){
-            console.log(data);
-            
-        
-            ///////////////////////////////////////////////////////////////
-            
-            
-    
+
+        // create cards on fav page minus similar button// 
             var testCard = document.createElement('div')
             var testCardImgCon = document.createElement('div')
             var testImage = document.createElement('img')
             var testContentCont = document.createElement('div')
             var testSpan = document.createElement('span')
             var testPar = document.createElement('p')
-            // var testAnch = document.createElement('a')
             var testDivreveal = document.createElement('div')
             var testSpanRevTitle = document.createElement('span')
             var closeRev = document.createElement('i')
@@ -82,6 +74,7 @@ function printFavorites (titleId) {
             testCard.appendChild(testContentCont)
             testCard.appendChild(testDivreveal)
             pageBody.appendChild(testCard);
+            // event listeners for the youtube button and favorites button
             (function() {
                 testAnch.addEventListener('click', function(e){
                 findyoutubeid(e.target.dataset.ytsearch)
@@ -91,10 +84,6 @@ function printFavorites (titleId) {
                     e.target.classList.toggle('like');
                     checkLikes(e.target)
                 })
-                //
-                
-                    // console.log(e.target) 
-            
             })(i)
         
         })
