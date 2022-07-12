@@ -8,6 +8,7 @@
 
 ![gif of page functioning](./assets/Images/condensedFullDemo.gif)
 <br>
+
 Purpose:
 Our app allows users to quickly and easily find new movies based off of title or genre. Users can also find similar movies to ones that pop up in their search to find movies they might enjoy based off of a previous movie they liked. Each movie option also has the ability to watch it's trailer so that they can easily screen results to find a movie they're interested in. Our app's UI is simple in order to maximize efficiency, with no unnecessary features making the app more difficult to learn at first glance. Users can also save movies to their favorites using local storage, so that they can easily come back to movies they were curious about from previous searches.
 
@@ -19,6 +20,7 @@ The technologies used in the making of this project include HTML, CSS, JavaScrip
 
 #### Here's a few quick links:
 
+* [User Story](#User Story)
 * [Code Snippets](#code-snippets)
 * [Usage](#usage)
 * [Technology used](#technology-used)
@@ -26,6 +28,13 @@ The technologies used in the making of this project include HTML, CSS, JavaScrip
 * [License](#license)
 * [Author](#authors)
 ---
+
+## User Story
+
+User Story: As a user I want to search for a movie and see a brief description and watch the trailer for the movie, so that I can decide if I want to watch the movie.<br>
+![gif of page functioning](./assets/Images/userStoryone.gif)<br>
+User Story: As a user if I like the movie I want to be able to save it to come back to later, to compile a list of movies im interested in watching.<br>
+![gif of page functioning](./assets/Images/likeMovieDemo.gif)<br>
 
 ## Code Snippets
 
@@ -51,14 +60,15 @@ To add a movie to your favorites, click the button with a star icon on the movie
 
 ## Technology used
 
- ![Materialize Icon](https://img.shields.io/badge/CSS%20FrameWork-Materialize-ff69b4)<br>
- ![image](https://img.shields.io/badge/Script-JavaScript-yellow)<br>
- ![image](https://img.shields.io/badge/Stylng-CSS-blue)<br>
- ![image](https://img.shields.io/badge/Layout-HTML-orange)
+![Materialize Icon](https://img.shields.io/badge/CSS%20FrameWork-Materialize-ff69b4)<br>
+![image](https://img.shields.io/badge/Script-JavaScript-yellow)<br>
+![image](https://img.shields.io/badge/Stylng-CSS-blue)<br>
+![image](https://img.shields.io/badge/Layout-HTML-orange)<br>
+![image](https://img.shields.io/badge/API-Youtube-red)<br>
+![image](https://img.shields.io/badge/API-TMDB-success)<br>
 <br>
 Skills used:
-- new CSS framework (Materialize)<br>
-<img src='./assets/images/Materialize.svg' style="height: 50px;">
+- new CSS framework (Materialize)
 - using input validation to avoid errors and facilitate use for users, including using the lowercase method and resetting input value to match genre ids of the TMDB API
 - local storage to add movies to an empty array using the dataset's keys to store favorites and populate the favorites page with specifically those movies 
 - modal window that users can easily click out of to render trailers only when users deliberately click to do so
