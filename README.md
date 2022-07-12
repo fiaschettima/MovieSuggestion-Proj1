@@ -20,7 +20,7 @@ The technologies used in the making of this project include HTML, CSS, JavaScrip
 
 #### Here's a few quick links:
 
-* [User Story](#User Story)
+* [User Story](#user-story)
 * [Code Snippets](#code-snippets)
 * [Usage](#usage)
 * [Technology used](#technology-used)
