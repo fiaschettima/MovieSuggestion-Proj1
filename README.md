@@ -37,6 +37,9 @@ User Story: As a user if I like the movie I want to be able to save it to come b
 ![gif of page functioning](./assets/Images/likeMovieDemo.gif)<br>
 User Story: As a user I want to be able to save movies so that I can view them later<br>
 ![gif of page functioning](./assets/Images/favPageDemo.gif)<br>
+User Story: As a user I want to be able to find similar movie recommendations for movies that I am interested in so that I may find related movies to watch.
+![gif of page functioning](./assets/Images/similarMovieDemo.gif)<br>
+
 ## Code Snippets
 
 ![Youtube API](./assets/Images/codeSnipYTAPI.png)<br>
@@ -81,7 +84,7 @@ Skills used:
 
 
 ## Credits
-Credit goes to project contributors Matt Fiaschetti, Jeffery Zhu, and Damien Armstrong. Credit as well our CSS framework <a href="https://materializecss.com/">Materialize</a>, and the two APIs used, The Movie Database API and Youtube API.
+Credit goes to project contributors Matt Fiaschetti, Jeffrey Zhang, and Damien Armstrong. Credit as well our CSS framework <a href="https://materializecss.com/">Materialize</a>, and the two APIs used, The Movie Database API and Youtube API.
 
 ## License
 
